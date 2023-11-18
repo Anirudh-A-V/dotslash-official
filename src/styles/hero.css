@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Nunito:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap');
+.hero{
+    height: 100vh;
+    width: 100%;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+
+}
+
+.hero_sub{
+    align-items: center;
+    justify-content: center;
+    height: 40%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2;
+    grid-template-rows: 4;
+    /* background-color: red; */
+
+}
+
+.hero_logo_section{
+    /* background-color: blue; */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    grid-row: 1/4;
+    grid-column: 1;
+}
+
+.hero_logo_section img{
+    height: 20vh;
+}
+
+.hero_logo_section h3{
+    color: white;
+    /* background-color: red; */
+    position: relative;
+    top: -40px;
+    font-size: 3.5rem;
+    font-family: 'Abril Fatface' ,'sans-serif';
+    
+}
+
+.hero_caption{
+    text-align: center;
+    /* font-family: 'Lobster'; */
+    font-family: 'Sawarabi Mincho';
+    color: white;
+    font-style: italic;
+    font-size: 50px;
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.about{
+    /* background-color: green; */
+    grid-column: 2;
+    grid-row: 2;
+    
+    color: white;
+    /* background-color: red; */
+    
+    margin: auto;
+    padding: 0px 15%;
+    /* width: 28vw; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: 'Nunito';
+    margin: 30px;
+    font-size: 1.2rem;
+}
+
+.about h3{
+    /* font-family: url('/public/Editorial New Regular 400.otf'); */
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    /* font-family: ; */
+    /* font-style: italic; */
+}
+
+.about p{
+    font-family: 'Nunito';
+    line-height: 140%;
+}
+
+
+@media( max-width : 80vh ){
+
+    body{
+        /* background-color: red; */
+    }
+
+    .hero_sub{
+        grid-template-columns: 1;
+        grid-template-rows: 3;
+    }
+
+
+
+
+    .hero_caption{
+        margin: auto;
+        /* background-color: red; */
+        margin: 0px;
+        width: 100vw;
+        font-size: 2.8rem;
+        margin-bottom: 100px;
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .hero_logo_section{
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .hero_logo_section img {
+        /* width: 50vw; */
+        width: 30vw;;
+        height: 30vw;
+    }
+
+    .hero_logo_section h3{
+        
+        text-align: center;
+        width: 100vw;
+        font-size: 2.4rem;
+    }
+
+    .about{
+
+        grid-column: 1;
+        grid-row: 3;
+    }
+
+    .about h3{
+        margin-bottom: 20px;
+    }
+}
