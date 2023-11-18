@@ -1,0 +1,25 @@
+.navLinksMobile {
+  background: linear-gradient(180deg, #171a22 0%, #2f395e 32.08%, #5265b4 100%);
+  top: 0;
+  /* transform: translateY(-200%); */
+}
+.navlinks {
+}
+
+.links > * {
+  text-align: center;
+  padding: 12px;
+  color: white;
+  width: 100%;
+  border-bottom: 1px solid white;
+}
+
+.opened {
+  transform: translateY(0);
+  transition: transform 0.25s;
+}
+
+.closed {
+  transform: translateY(-100%);
+  transition: transform 0.25s;
+}
