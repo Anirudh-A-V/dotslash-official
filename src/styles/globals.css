@@ -25,3 +25,12 @@ body {
     )
     rgb(var(--background-start-rgb));
 } */
+
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
+body{
+  background-color: #171A22;
+}
