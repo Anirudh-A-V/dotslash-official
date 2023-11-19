@@ -53,7 +53,7 @@
 .hero_caption{
     text-align: center;
     /* font-family: 'Lobster'; */
-    font-family: 'Sawarabi Mincho';
+    font-family: 'EditorialNew';
     color: white;
     font-style: italic;
     font-size: 50px;
@@ -84,15 +84,20 @@
 .about h3{
     /* font-family: url('/public/Editorial New Regular 400.otf'); */
     margin-bottom: 20px;
+    font-family: "NeueMontrealMonoRegular";
     font-size: 1.6rem;
-    font-weight: bold;
+    font-weight: bolder;
     /* font-family: ; */
     /* font-style: italic; */
 }
 
 .about p{
-    font-family: 'Nunito';
+    /* font-family: 'Nunito'; */
+    font-family: 'NeueMontrealMonoRegular';
     line-height: 140%;
+    font-style: normal;
+    font-weight:100;
+ 
 }
 
 

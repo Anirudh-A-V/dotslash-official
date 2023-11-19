@@ -26,6 +26,22 @@ body {
     rgb(var(--background-start-rgb));
 } */
 
+/* @font-face { */
+  /* font-family: "NeueMontrealMono"; */
+  /* src: url("../../public/PPNeueMontrealMono-RegularItalic.otf"); */
+/* } */
+
+@font-face {
+  font-family: "NeueMontrealMonoRegular";
+  src: url("../../public/PPNeueMontrealMono-Thin.otf");
+}
+
+@font-face {
+  font-family: "EditorialNew";
+  src: url("../../public/PPEditorialNew-Regular.otf");
+}
+
+
 *{
   margin: 0px;
   padding: 0px;
