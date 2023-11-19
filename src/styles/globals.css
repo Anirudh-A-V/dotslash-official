@@ -66,3 +66,40 @@ body::-webkit-scrollbar-thumb {
   font-family: "EditorialNew";
   src: url("../../public/PPEditorialNew-Regular.otf");
 }
+
+.slide-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.slide-content {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  background-color: #000000;
+  padding: 0px;
+  transition: top 1s ease-in-out;
+}
+
+.slide-in {
+  top: 0;
+}
+
+.slide-out {
+  top: 100%;
+}
+
+/* @media screen and (min-width: 768px) {
+  .slide-content {
+    max-width: 400px;
+  }
+
+  .slide-in {
+    top: calc(100% - 400px);
+  }
+
+  .slide-out {
+    top: 100%;
+  }
+} */
