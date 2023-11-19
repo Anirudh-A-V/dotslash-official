@@ -9,7 +9,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 70%;
 
 }
 
@@ -17,7 +16,7 @@
     align-items: center;
     justify-content: center;
     height: 40%;
-    width: 100%;
+    width: 70%;
     display: grid;
     grid-template-columns: 2;
     grid-template-rows: 4;
@@ -103,8 +102,10 @@
 
 @media( max-width : 80vh ){
 
-    body{
-        /* background-color: red; */
+    .hero {
+        align-items: flex-start;
+        margin-top: 40%;
+        height: 100%;
     }
 
     .hero_sub{
@@ -119,7 +120,7 @@
         margin: auto;
         /* background-color: red; */
         margin: 0px;
-        width: 100vw;
+        width: 100%;
         font-size: 2.8rem;
         margin-bottom: 100px;
         grid-column: 1;
@@ -145,7 +146,7 @@
     }
 
     .about{
-
+        padding: 0;
         grid-column: 1;
         grid-row: 3;
     }

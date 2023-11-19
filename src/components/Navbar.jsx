@@ -52,7 +52,7 @@ const Navbar = () => {
   const [openLinks, setOpenLinks] = useState(false);
 
   return (
-    <div className="relative flex items-center justify-between w-screen h-16 px-4 sm:h-20 sm:px-12">
+    <div className="absolute flex items-center justify-between w-full h-16 px-4 sm:h-20 z-10 sm:px-12">
       <Link href="/">
         <Image src={logo_title} alt="Dotslash" />
       </Link>
