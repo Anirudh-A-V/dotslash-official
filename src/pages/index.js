@@ -19,11 +19,11 @@ export default function Home() {
       <Navbar />
       <Hero />
       <About />
-      <Featured />
+      {/* <Featured />
       <PreEvents />
       <Events />
       <Sponsors />
-      <Footer />
+      <Footer /> */}
     </main>
   )
 }
