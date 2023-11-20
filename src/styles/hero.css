@@ -167,9 +167,10 @@
 
 .hero_intro_vid {
     animation-name: hero_intro;
-    animation-duration: 2.1s;
-    animation-delay: 2.6s;
+    animation-duration:1.7s;
+    animation-delay: 2.4s;
     animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 
 @keyframes hero_text {
@@ -190,4 +191,5 @@
     animation-duration: 5s;
     animation-iteration-count: 1;
     animation-timing-function: cubic-bezier(1, .1, 0.25, 1);
+    animation-fill-mode: forwards;
 }
