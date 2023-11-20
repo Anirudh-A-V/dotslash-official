@@ -2,14 +2,31 @@ import React from 'react'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import eventData from "../assets/data/data.js"
+import {eventData} from "../assets/data/data.js"
+import { useState,useEffect } from 'react';
 const Events = () => {
-  const events=eventData;
-
+  console.log(eventData);
+  const [slidesToShow, setSlidesToShow] = useState(3);
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 767) {
+        setSlidesToShow(1);
+      } else if (window.innerWidth <= 991) {
+        setSlidesToShow(2);
+      } else {
+        setSlidesToShow(3);
+      }
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []); 
   const settings = {
     infinite: false,
     dots: true,
-    slidesToShow: 1,
+    slidesToShow: slidesToShow,
     slidesToScroll: 1,
     lazyLoad: true,
     autoplay: true,
@@ -48,31 +65,30 @@ const Events = () => {
   
   return (
     <div className=' w-full h-[100px] flex flex-col'>
-      <div className='text-white  w-[90%] mx-auto p-2 justify-between items-center flex '>
+      <div className='text-white  w-[90%] lg:w-3/4 mx-auto p-2 justify-between items-center flex '>
         <div><h className="text-[23px] font-[500]">EVENTS</h></div>
         <div><a className="text-[16px] font-[500]">View More</a></div>
       </div>
-      <Slider {...settings} className='w-[90%] mx-auto  '>
+      
+      <Slider {...settings} className=' w-[90%] lg:w-3/4 mx-auto  '>
       
       
-      <div className='w-full'>
+      {eventData.map((event, index) => (
+        <div className='w-full p-0 md:pr-2 '>
         <div className='w-full h-[360px] bg-lime-200'>
-
-        </div>
+  <img
+    className="w-full h-full"
+    src={event.eventPoster.src}
+    alt="Event Poster"
+  />
+</div>
         <div className='mb-2 w-full p-[24px] pt-[12px] pb-[12px] justify-between flex  bg-[#434A66]'>
           <div className='my-auto'><button className="text-[16px] font-[500] text-[#D4DDFF]">View Details </button></div>
-          <div><button className="text-[16px] font-[500] p-[8px] bg-[#C7D2FF] text-[#091A61]">Register</button></div>
+          <div><a href={event.eventRegistration} className="text-[16px] font-[500] p-[8px] bg-[#C7D2FF] text-[#091A61]">Register</a></div>
         </div>
       </div>
-      <div className='w-full'>
-        <div className='w-full h-[360px] bg-blue-200'>
-
-        </div>
-        <div className='mb-2 w-full p-[24px] pt-[12px] pb-[12px] justify-between flex  bg-[#434A66]'>
-          <div className='my-auto'><button className="text-[16px] font-[500] text-[#D4DDFF]">View Details </button></div>
-          <div><button className="text-[16px] font-[500] p-[8px] bg-[#C7D2FF] text-[#091A61]">Register</button></div>
-        </div>
-      </div>
+        
+      ))}
       
       </Slider>
       
