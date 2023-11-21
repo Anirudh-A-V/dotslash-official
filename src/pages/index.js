@@ -3,11 +3,13 @@ import { Inter } from "next/font/google";
 
 import About from "@/components/About";
 import Events from "@/components/Events";
+import Statistics from "@/components/Statistics.jsx";
 import Featured from "@/components/Featured";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import Sponsors from "@/components/Sponsors";
+
 
 
 import { workshopData, preEventData, competitionData, informalsData } from "../assets/data/data.js"
@@ -31,11 +33,16 @@ export default function Home() {
 
       {/* <Featured />
 
+      
+
       <PreEvents />
       
       
       <Sponsors />
       <Footer /> */}
+
+       <Statistics/>
+
     </main>
   );
 }
