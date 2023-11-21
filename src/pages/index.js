@@ -12,18 +12,20 @@ import Image from "next/image";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-    return (
-        <main
-            className={`flex min-h-screen flex-col items-center justify-start w-full ${inter.className}`}
-        >
-            <Navbar />
-            <Hero />
-            <About />
-            {/* <Featured />
-      <PreEvents />
+  return (
+    <main
+      className={`flex min-h-screen flex-col items-center justify-start w-full ${inter.className}`}
+    >
+      <Navbar />
+      <Hero />
+      <About />
       <Events />
+      {/* <Featured />
+
+      <PreEvents />
+      
       <Sponsors />
       <Footer /> */}
-        </main>
+   </main>
     );
 }
