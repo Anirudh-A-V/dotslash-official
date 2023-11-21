@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
+import { useMediaQuery } from 'react-responsive'
 
 const PPNeueMachinaFont = localFont({
     src: [
@@ -13,6 +14,8 @@ const PPNeueMachinaFont = localFont({
 });
 
 const Hero = () => {
+    const isMobile = useMediaQuery({ query: '(max-width: 767px)' })
+
     const [introPlayed, setIntroPlayed] = useState(false);
     const loopRef = useRef(null);
     const loopRefPortrait = useRef(null);
@@ -33,7 +36,7 @@ const Hero = () => {
 
     return (
         <div className="flex flex-col justify-center items-center w-full h-screen overflow-hidden">
-            <video
+            {/* <video
                 className={`${
                     introPlayed ? "z-[0]" : "md:z-[5] z-[0]"
                 } md:flex hidden hero_intro_vid_md absolute w-screen h-screen object-cover duration-150 ease-in-out`}
@@ -48,11 +51,9 @@ const Hero = () => {
                 src="videos/loop.mp4"
                 muted
                 loop
-            />
+            /> */}
             <video
-                className={`${
-                    introPlayed ? "z-[0]" : "md:z-0 z-[3]"
-                } md:hidden flex hero_intro_vid absolute w-screen h-screen object-cover duration-150 ease-in-out  border-green-400`}
+                className={`${ introPlayed ? "z-[0]" : "md:z-0 z-[3]"} md:hidden flex hero_intro_vid absolute w-screen h-screen object-cover duration-150 ease-in-out  border-green-400`}
                 src="videos/intro-portrait.mp4"
                 muted
                 autoPlay
@@ -60,11 +61,31 @@ const Hero = () => {
             />
             <video
                 ref={loopRefPortrait}
-                className="md:z-0 md:hidden flex z-[2] hero_loop_vid scale-[90%] absolute w-screen h-screen object-cover  border-green-400"
+                className={` ${ !introPlayed ? "hidden" : "flex"} md:z-0 md:hidden  z-[2] hero_loop_vid sca le-[90%] absolute w-screen h-screen object-cover  border-green-400`}
                 src="videos/loop-portrait.mp4"
                 muted
                 loop
             />
+            {/* <video
+            className=""
+            src='videos/' */}
+
+            {/* <video
+                className={`${introPlayed ? "z-[0] hidden" : "md:z-0 z-[3]"
+                    } flex max-sm:hero_intro_vid border-green-400 md: hero_intro_vid_md absolute w-screen h-screen object-cover duration-150 ease-in-out`}
+                src={isMobile ? "videos/intro-portrait.mp4" : "videos/intro.mp4"}
+                muted
+                autoPlay
+                onEnded={() => setIntroPlayed((state) => !state)}
+            />
+            <video
+                ref={loopRefPortrait}
+                className={`${!introPlayed ? "hidden" : "flex"}  hero_loop_vid scale-[90%] absolute w-screen h-1/2 object-cover  border-green-400  hero_loop_vid_md md:scale-[70%]`}
+                src={isMobile ? "videos/loop-portrait.mp4" : "videos/loop.mp4"}
+                muted
+                loop
+            /> */}
+
             <div className="hero_intro_text absolute z-10 bottom-[10%] flex flex-col gap-4 justify-center items-center">
                 <img className=" w-full" src="/hero-logo.svg" alt="hero logo" />
                 <h2

@@ -4,10 +4,11 @@ import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import Featured from '@/components/Featured'
 import PreEvents from '@/components/PreEvents'
-import Events from '@/components/Events'
+import Events from '@/components/Prevents'
 import Sponsors from '@/components/Sponsors'
 import Footer from '@/components/Footer'
 import About from '@/components/About'
+import Statistics from '@/components/Statistics'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,6 +21,7 @@ export default function Home() {
       <Hero />
       <About />
       <Events />
+      <Statistics />
       {/* <Featured />
       <PreEvents />
       

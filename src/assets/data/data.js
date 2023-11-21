@@ -15,10 +15,10 @@ export const eventData = [
     eventRegistration: "",
     eventPoster: Microsoft, // Remove the curly braces
   },
-  {
-    eventName: "Python Programming",
-    eventDesc: "Lorem IpsumLorem Ipsum Lorem IpsumLorem IpsumLorem Ipsum",
-    eventRegistration: "",
-    eventPoster: PythonProg, // Remove the curly braces
-  },
+  // {
+  //   eventName: "Python Programming",
+  //   eventDesc: "Lorem IpsumLorem Ipsum Lorem IpsumLorem IpsumLorem Ipsum",
+  //   eventRegistration: "",
+  //   eventPoster: PythonProg, // Remove the curly braces
+  // },
 ];
