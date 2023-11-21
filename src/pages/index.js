@@ -19,9 +19,10 @@ export default function Home() {
       <Navbar />
       <Hero />
       <About />
+      <Events />
       {/* <Featured />
       <PreEvents />
-      <Events />
+      
       <Sponsors />
       <Footer /> */}
     </main>
