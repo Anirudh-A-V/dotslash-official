@@ -66,10 +66,12 @@ const Navbar = () => {
       <NavLinksMobile openState={openLinks} setOpenState={setOpenLinks} />
 
       <div
-        className={`${styles.navlinks} sm:flex hidden w-3/5 items-center text-white justify-between font-mono text-xl`}
+        className={`${styles.navlinks} sm:flex hidden w-3/5 items-center text-white justify-end gap-16 font-mono text-xl`}
       >
         <Link href={"#"}>HOME</Link>
-        <Link href={"#events"}>EVENTS</Link>
+        <Link href={"#events"}>PREEVENTS</Link>
+        {/* <Link href={"#events"}>WORKSHOPS</Link>
+        <Link href={"#events"}>COMPETIONS</Link> */}
         <Link href={"#about-us"}>ABOUT</Link>
         <Link href={"#contact"}>CONTACT</Link>
       </div>

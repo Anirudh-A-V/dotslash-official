@@ -37,8 +37,8 @@ const Hero = () => {
         }
     });
     return (
-        <div className="flex flex-col justify-center items-center w-full h-screen overflow-hidden">
-            <video
+        <div className="flex flex-col justify-center items-center w-full h-screen overflow-clip">
+            {/* <video
                 className={`${
                     introPlayed ? "opacity-0" : ""
                 } z-[1] hero_intro_vid absolute w-screen h-screen object-cover duration-150 ease-in-out`}
@@ -61,7 +61,7 @@ const Hero = () => {
                 }
                 muted
                 loop
-            />
+            /> */}
             <div className="hero_intro_text absolute z-10 flex flex-col gap-4 justify-center items-center">
                 <img className=" w-full" src="/hero-logo.svg" alt="hero logo" />
                 <h2
