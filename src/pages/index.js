@@ -9,9 +9,13 @@ import Sponsors from "@/components/Sponsors";
 import { Inter } from "next/font/google";
 import Image from "next/image";
 
-const inter = Inter({ subsets: ["latin"] });
+
+import {workshopData,preEventData,competitionData,informalsData} from "../assets/data/data.js"
+
+const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  
   return (
     <main
       className={`flex min-h-screen flex-col items-center justify-start w-full ${inter.className}`}
@@ -23,6 +27,15 @@ export default function Home() {
       {/* <Featured />
 
       <PreEvents />
+      
+      {workshopData.length ? <Events eventData={workshopData} sectionTitle="WORKSHOPS" /> : null}
+      {preEventData.length ? <Events eventData={preEventData} sectionTitle="PRE EVENTS" /> : null}
+      {competitionData.length ? <Events eventData={competitionData} sectionTitle="COMPETITIONS" /> : null}
+      {informalsData.length ? <Events eventData={informalsData} sectionTitle="INFORMALS" /> : null}
+      
+      
+      
+      {/* 
       
       <Sponsors />
       <Footer /> */}
