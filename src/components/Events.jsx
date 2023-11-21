@@ -1,18 +1,48 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { Dialog, Transition } from '@headlessui/react'
+import localFont from "next/font/local";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Image from "next/image";
+import Link from "next/link";
+
+const PPTelegraffont = localFont({
+	src: [
+		{
+			path: "../../public/fonts/PPTelegraf-Ultrabold.otf",
+			weight: "800",
+			style: "normal",
+		},
+	]
+})
+
+const PPNeueMontrealFont = localFont({
+	src: [
+		{
+			path: "../../public/fonts/PPNeueMontreal-Book.otf",
+			weight: "400",
+			style: "normal",
+		},
+		{
+			path: "../../public/fonts/PPNeueMontreal-Medium.otf",
+			weight: "500",
+			style: "normal",
+		},
+	],
+});
 
 const Events = ({ eventData, sectionTitle }) => {
 	const [slidesToShow, setSlidesToShow] = useState(3);
-	const [isOpen, setIsOpen] = useState(true)
+	const [eventModal, setEventModal] = useState(null);
+	const [isOpen, setIsOpen] = useState(false)
 
 	function closeModal() {
 		setIsOpen(false)
 	}
 
-	function openModal() {
+	function openModal(data) {
+		setEventModal(data)
 		setIsOpen(true)
 	}
 
@@ -97,78 +127,117 @@ const Events = ({ eventData, sectionTitle }) => {
 						<div className="mb-2 w-full p-[24px] pt-[12px] pb-[12px] justify-between flex  bg-[#090C53]">
 							<div className="my-auto">
 								<button className="text-[14px] lg:text-[16px] font-[500] text-[#D4DDFF]"
-									onClick={openModal}
+									onClick={(e) => openModal(event)}
 								>
 									View Details{" "}
 								</button>
 							</div>
 							<div>
-								<a
-									href={event.eventRegistration}
+								{/* <button
 									className="text-[14px] lg:text-[16px] font-[500] px-[12px] py-[6px] bg-[#C7D2FF] text-[#091A61]"
+									disabled={event.eventStatus === 0 ? true : false}
+								>
+									<a
+										href={event.eventRegistration}
+									>
+										{event.eventStatus === 1 ? "Register" : "Closed"}
+									</a>
+								</button> */}
+								<Link
+									className="text-[14px] lg:text-[16px] font-[500] px-[12px] py-[6px] bg-[#C7D2FF] text-[#091A61]"
+									href={event.eventRegistration}
+									disabled={event.eventStatus === 0 ? true : false}
 								>
 									{event.eventStatus === 1 ? "Register" : "Closed"}
-								</a>
+								</Link>
 							</div>
 						</div>
 					</div>
 				))}
 			</Slider>
 
-			<Transition appear show={isOpen} as={Fragment}>
-				<Dialog as="div" className="relative z-10" onClose={closeModal}>
-					<Transition.Child
-						as={Fragment}
-						enter="ease-out duration-300"
-						enterFrom="opacity-0"
-						enterTo="opacity-100"
-						leave="ease-in duration-200"
-						leaveFrom="opacity-100"
-						leaveTo="opacity-0"
-					>
-						<div className="fixed inset-0 bg-black/25" />
-					</Transition.Child>
+			{eventModal && (
+				<Transition appear show={isOpen} as={Fragment}>
+					<Dialog as="div" className="relative z-30" onClose={closeModal}>
+						<Transition.Child
+							as={Fragment}
+							enter="ease-out duration-300"
+							enterFrom="opacity-0"
+							enterTo="opacity-100"
+							leave="ease-in duration-200"
+							leaveFrom="opacity-100"
+							leaveTo="opacity-0"
+						>
+							<div className="fixed inset-0 bg-black/25" />
+						</Transition.Child>
 
-					<div className="fixed inset-0 overflow-y-auto">
-						<div className="flex min-h-full items-center justify-center p-4 text-center">
-							<Transition.Child
-								as={Fragment}
-								enter="ease-out duration-300"
-								enterFrom="opacity-0 scale-95"
-								enterTo="opacity-100 scale-100"
-								leave="ease-in duration-200"
-								leaveFrom="opacity-100 scale-100"
-								leaveTo="opacity-0 scale-95"
-							>
-								<Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-									<Dialog.Title
-										as="h3"
-										className="text-lg font-medium leading-6 text-gray-900"
-									>
-										Payment successful
-									</Dialog.Title>
-									<div className="mt-2">
-										<p className="text-sm text-gray-500">
-											Your payment has been successfully submitted. We’ve sent
-											you an email with all of the details of your order.
-										</p>
-									</div>
+						<div className="fixed inset-0 overflow-y-auto">
+							<div className="flex min-h-full items-center justify-center p-4 text-center">
+								<Transition.Child
+									as={Fragment}
+									enter="ease-out duration-300"
+									enterFrom="opacity-0 scale-95"
+									enterTo="opacity-100 scale-100"
+									leave="ease-in duration-200"
+									leaveFrom="opacity-100 scale-100"
+									leaveTo="opacity-0 scale-95"
+								>
+									<Dialog.Panel className="w-full max-w-4xl flex flex-col transform overflow-hidden bg-[#121212] p-4 md:p-8 text-left align-middle transition-all">
+										<div className="flex justify-end items-center mb-4">
+											<button
+												className={`text-[14px] lg:text-[16px] font-extrabold text-white ${PPTelegraffont.className}`}
+												onClick={closeModal}
+											>
+												CLOSE{" "}
+											</button>
+										</div>
+										<div className="flex flex-col lg:flex-row justify-center items-center md:items-start gap-6">
+											<div className="w-full flex-1 flex justify-center items-center">
+												<img
+													// className="w-4/5 h-4/5 md:w-full md:h-full"
+													className="w-full h-full"
+													src={eventModal.eventPoster.src}
+													alt="Event Poster"
+												/>
+											</div>
+											<div className="overflow-hidden flex flex-1 flex-col h-full justify-between items-start">
+												<div className="flex flex-col">
+													<p className={`text-[16px] lg:text-[18px] ${PPNeueMontrealFont.className} font-medium w-full text-white mb-4`}>
+														{eventModal.eventName}
+													</p>
+													<p className={`scroll text-sm md:text-lg overflow-auto h-[250px] md:h-[400px] font-normal text-white mb-4 whitespace-pre-line ${PPNeueMontrealFont.className}`}>
+														{eventModal.eventDesc ? eventModal.eventDesc : "No description available"}
+													</p>
+												</div>
 
-									<div className="mt-4">
-										<button
-											type="button"
-											className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-											onClick={closeModal}
-										>
-											Got it, thanks!
-										</button>
-									</div>
-								</Dialog.Panel>
-							</Transition.Child>
+
+												<div className="flex w-full justify-end items-center mt-2">
+													{/* <button className={`text-[14px] lg:text-[16px] font-medium text-[#091A61] bg-[#C7D2FF] px-[12px] py-[6px] ${PPNeueMontrealFont.className}`}
+														disabled={eventModal.eventStatus === 0 ? true : false}
+													>
+														<a
+															href={eventModal.eventRegistration}
+														>
+															{eventModal.eventStatus === 1 ? "Register" : "Closed"}
+														</a>
+													</button> */}
+													<Link 
+														className={`text-[14px] lg:text-[16px] font-medium text-[#091A61] bg-[#C7D2FF] px-[12px] py-[6px] ${PPNeueMontrealFont.className}`}
+														href={eventModal.eventRegistration}
+														disabled={eventModal.eventStatus === 0 ? true : false}
+													>
+														{eventModal.eventStatus === 1 ? "Register" : "Closed"}
+													</Link>
+												</div>
+											</div>
+										</div>
+									</Dialog.Panel>
+								</Transition.Child>
+							</div>
 						</div>
-					</div>
-				</Dialog>
-			</Transition>
+					</Dialog>
+				</Transition>
+			)}
 		</div>
 	);
 };
