@@ -22,20 +22,14 @@ export default function Home() {
     >
       <Navbar />
       <Hero />
+      {/* <Featured /> */}
       <About />
-      {/* <Events /> */}
       {workshopData.length > 0 && <Events eventData={workshopData} sectionTitle="WORKSHOPS" />}
       {preEventData.length > 0 && <Events eventData={preEventData} sectionTitle="PRE EVENTS" />}
       {competitionData.length > 0 && <Events eventData={competitionData} sectionTitle="COMPETITIONS" />}
       {informalsData.length > 0 && <Events eventData={informalsData} sectionTitle="INFORMALS" />}
-
-      {/* <Featured />
-
-      <PreEvents />
-      
-      
-      <Sponsors />
-      <Footer /> */}
+      {/* <Sponsors />  */}
+      <Footer />
     </main>
   );
 }
