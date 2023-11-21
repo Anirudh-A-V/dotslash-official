@@ -22,6 +22,11 @@ const PPEditotialNewFont = localFont({
       path: "../../public/fonts/PPEditorialNew-UltralightItalic.otf",
       weight: "200",
       style: "italic",
+    },
+    {
+      path: "../../public/fonts/PPEditorialNew-Ultralight.otf",
+      weight: "200",
+      style: "normal",
     }
   ],
 });
@@ -44,7 +49,7 @@ const NavLinksMobile = ({ openState, setOpenState }) => {
       </div>
 
       <ul
-        className={`flex z-20 flex-col items-center sm:hidden text-center text-white gap-6 text-xl ${PPEditotialNewFont.className}`}
+        className={`flex z-20 flex-col font-extralight items-center sm:hidden text-center text-white gap-6 text-xl ${PPEditotialNewFont.className}`}
       >
         <li>
           <Link href={"#about-us"}>Home</Link>
