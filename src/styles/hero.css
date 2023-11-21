@@ -156,7 +156,7 @@
     }
 }
 
-@keyframes hero_intro {
+@keyframes hero_intro_md {
     0% {
         transform: scale(100%);
     }
@@ -165,14 +165,32 @@
     }
 }
 
-.hero_intro_vid {
-    animation-name: hero_intro;
-    animation-duration: 2.1s;
-    animation-delay: 2.6s;
-    animation-iteration-count: 1;
+@keyframes hero_intro {
+    0% {
+        transform: scale(100%);
+    }
+    100% {
+        transform: scale(90%);
+    }
 }
 
-@keyframes hero_text {
+.hero_intro_vid_md {
+    animation-name: hero_intro_md;
+    animation-duration:1.7s;
+    animation-delay: 2.4s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.hero_intro_vid {
+    animation-name: hero_intro;
+    animation-duration:1.7s;
+    animation-delay: 2.4s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes hero_text_md {
     0% {
         bottom: -10%;
         transform: scale(0.5);
@@ -185,9 +203,24 @@
     }
 }
 
+@keyframes hero_text{
+    0% {
+        bottom: -10%;
+        transform: scale(0.5);
+        opacity: 0%;
+    }
+    100% {
+        bottom: 10%;
+        transform: scale(0.8);
+        opacity: 100%;
+    }
+}
+
 .hero_intro_text {
     animation-name: hero_text;
     animation-duration: 5s;
     animation-iteration-count: 1;
     animation-timing-function: cubic-bezier(1, .1, 0.25, 1);
+    animation-fill-mode: forwards;
+    @screen md {animation-name: hero_text_md};
 }
