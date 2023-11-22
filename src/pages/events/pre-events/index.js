@@ -7,6 +7,7 @@ import Navbar from '@/components/Navbar'
 import { Dialog, Transition } from '@headlessui/react'
 
 import { preEventData } from '../../../assets/data/data';
+import Footer from '@/components/Footer';
 
 const PPNeueMontrealFont = localFont({
     src: [
@@ -186,6 +187,9 @@ const PreEventsPage = () => {
                         </Dialog>
                     </Transition>
                 )}
+                <div className='w-full mt-8'>
+                    <Footer />
+                </div>
             </main>
         </>
     )
