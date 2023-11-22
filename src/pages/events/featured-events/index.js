@@ -8,12 +8,12 @@ import { featuredEventsData } from '../../../assets/data/data';
 const PPNeueMontrealFont = localFont({
     src: [
         {
-            path: "../../../public/fonts/PPNeueMontreal-Book.otf",
+            path: "../../../../public/fonts/PPNeueMontreal-Book.otf",
             weight: "400",
             style: "normal",
         },
         {
-            path: "../../../public/fonts/PPNeueMontreal-Medium.otf",
+            path: "../../../../public/fonts/PPNeueMontreal-Medium.otf",
             weight: "500",
             style: "normal",
         },
