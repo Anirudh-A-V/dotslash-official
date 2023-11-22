@@ -26,10 +26,11 @@ export default function Home() {
       <Hero />
       {/* <Featured /> */}
       <About />
-      {workshopData.length > 0 && <Events eventData={workshopData} sectionTitle="WORKSHOPS" />}
-      {preEventData.length > 0 && <Events eventData={preEventData} sectionTitle="PRE EVENTS" />}
-      {competitionData.length > 0 && <Events eventData={competitionData} sectionTitle="COMPETITIONS" />}
-      {informalsData.length > 0 && <Events eventData={informalsData} sectionTitle="INFORMALS" />}
+      {preEventData.length > 0 && <Events eventData={preEventData} sectionTitle="PRE EVENTS" id="pre-events" />}
+      <Statistics />
+      {workshopData.length > 0 && <Events eventData={workshopData} sectionTitle="WORKSHOPS" id="workshops" />}
+      {competitionData.length > 0 && <Events eventData={competitionData} sectionTitle="COMPETITIONS" id="competitions" />}
+      {informalsData.length > 0 && <Events eventData={informalsData} sectionTitle="INFORMALS" id="informals" />}
       {/* <Sponsors />  */}
       <Footer />
     </main>
