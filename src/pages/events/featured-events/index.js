@@ -3,7 +3,7 @@ import React from 'react'
 import { Disclosure, Transition } from '@headlessui/react'
 import localFont from "next/font/local";
 
-import { featuredEventsData } from '@/assets/data/data';
+import { featuredEventsData } from '../../../assets/data/data';
 
 const PPNeueMontrealFont = localFont({
     src: [
