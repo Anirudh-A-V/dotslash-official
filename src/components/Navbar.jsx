@@ -84,7 +84,7 @@ const NavLinksMobile = ({ openState, setOpenState }) => {
         </li> */}
         {navRoutes.map((route, index) => (
           <li key={index}>
-            <Link href={route.link} scroll>{route.name}</Link>
+            <Link href={route.link} scroll onClick={() => setOpenState(false)}>{route.name}</Link>
           </li>
         ))}
       </ul>
