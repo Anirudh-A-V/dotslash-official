@@ -31,6 +31,25 @@ const PPEditotialNewFont = localFont({
   ],
 });
 
+const navRoutes = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "About",
+    link: "#about-us",
+  },
+  {
+    name: "Pre Events",
+    link: "#pre-events",
+  },
+  {
+    name: "Contact",
+    link: "#contact",
+  }
+]
+
 const NavLinksMobile = ({ openState, setOpenState }) => {
   return (
     <div
@@ -51,8 +70,8 @@ const NavLinksMobile = ({ openState, setOpenState }) => {
       <ul
         className={`flex z-20 flex-col font-extralight items-center sm:hidden text-center text-white gap-6 text-xl ${PPEditotialNewFont.className}`}
       >
-        <li>
-          <Link href={"#about-us"}>Home</Link>
+        {/* <li>
+          <Link href={"/"}>Home</Link>
         </li>
         <li>
           <Link href={"#about-us"}> About Us</Link>
@@ -60,18 +79,14 @@ const NavLinksMobile = ({ openState, setOpenState }) => {
         <li>
           <Link href={"#pre-events"}>Pre Events</Link>
         </li>
-        {/* <li>
-          <Link href={"#workshops"}>Workshops</Link>
-        </li>
-        <li>
-          <Link href={"#competitions"}>Competitions</Link>
-        </li>
-        <li>
-          <Link href={"#team"}>Team</Link>
-        </li> */}
         <li>
           <Link href={"#contact"}>Contact</Link>
-        </li>
+        </li> */}
+        {navRoutes.map((route, index) => (
+          <li key={index}>
+            <Link href={route.link} scroll>{route.name}</Link>
+          </li>
+        ))}
       </ul>
     </div>
   );
@@ -98,12 +113,13 @@ const Navbar = () => {
         <div
           className={`${styles.navlinks} sm:flex hidden w-3/5 items-center text-white justify-end gap-16 font-mono text-xl`}
         >
-          <Link href={"#"}>HOME</Link>
+          {/* <Link href={"/"}>HOME</Link>
           <Link href={"#events"}>PREEVENTS</Link>
-          {/* <Link href={"#events"}>WORKSHOPS</Link>
-        <Link href={"#events"}>COMPETIONS</Link> */}
           <Link href={"#about-us"}>ABOUT</Link>
-          <Link href={"#contact"}>CONTACT</Link>
+          <Link href={"#contact"}>CONTACT</Link> */}
+          {navRoutes.map((route, index) => (
+            <Link href={route.link} key={index}>{route.name.toUpperCase()}</Link>
+          ))}
         </div>
       </div>
     </>
