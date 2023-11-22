@@ -32,7 +32,14 @@ const PPNeueMontrealFont = localFont({
 	],
 });
 
-const Events = ({ eventData, sectionTitle }) => {
+const path = {
+	"PRE EVENTS": "pre-events",
+	"WORKSHOPS": "workshops",
+	"INFORMALS": "informals",
+	"COMPETITIONS": "competitions",
+	"featured events": "featured-events",
+}
+const Events = ({ eventData, sectionTitle, id }) => {
 	const [slidesToShow, setSlidesToShow] = useState(3);
 	const [eventModal, setEventModal] = useState(null);
 	const [isOpen, setIsOpen] = useState(false)
@@ -104,13 +111,18 @@ const Events = ({ eventData, sectionTitle }) => {
 	};
 
 	return (
-		<div className="w-full flex flex-col">
+		<div className="w-full flex flex-col" id={id}>
 			<div className="text-white  w-[90%] lg:w-3/4 mx-auto mb-2 p-2 justify-between items-center flex ">
 				<div>
-					<h className=" text-xl lg:text-4xl font-[500]">{sectionTitle}</h>
+					<h className={` text-[23px] font-[500] ${PPNeueMontrealFont.className}`}>{sectionTitle}</h>
 				</div>
 				<div>
-					<a className="text-md lg:text-xl font-[500]">View More</a>
+					<Link
+						className={`text-base font-[500] text-[#C7D2FF] ${PPNeueMontrealFont.className}`}
+						href={`/events/${path[sectionTitle]}`}
+					>
+						View All
+					</Link>
 				</div>
 			</div>
 
@@ -221,7 +233,7 @@ const Events = ({ eventData, sectionTitle }) => {
 															{eventModal.eventStatus === 1 ? "Register" : "Closed"}
 														</a>
 													</button> */}
-													<Link 
+													<Link
 														className={`text-[14px] lg:text-[16px] font-medium text-[#091A61] bg-[#C7D2FF] px-[12px] py-[6px] ${PPNeueMontrealFont.className}`}
 														href={eventModal.eventRegistration}
 														disabled={eventModal.eventStatus === 0 ? true : false}
