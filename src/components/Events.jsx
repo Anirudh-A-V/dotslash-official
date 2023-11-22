@@ -131,7 +131,7 @@ const Events = ({ eventData, sectionTitle, id }) => {
 					<div className="w-full p-0 md:pr-2 mb-6 ">
 						<div className="w-full h-[360px] bg-lime-200">
 							<img
-								className="w-full h-full"
+								className="w-full h-full object-cover"
 								src={event.eventPoster.src}
 								alt="Event Poster"
 							/>
