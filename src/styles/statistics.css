@@ -1,11 +1,10 @@
-.statistics{
+.statistics {
     /* background-color: red; */
     color: white;
     height: max-content;
-    width: 75%;
 }
 
-.stats_heading{
+.stats_heading {
     font-size: 2rem;
     display: flex;
     justify-content: center;
@@ -14,13 +13,13 @@
     /* background-color: red; */
     height: min-content;
     font-family: "NeueMontrealMonoRegular";
-}   
+}
 
-.gem{
+.gem {
     /* background-color: green; */
 }
 
-.statistics_items{
+.statistics_items {
     display: grid;
     align-items: center;
     justify-content: center;
@@ -28,7 +27,7 @@
 
     /* grid-template-columns: auto auto auto; */
     /* background-color: yellow; */
-    padding: 30px;
+    padding: 0px 30px 0px 30px;
 
 
     /* grid-template-rows: 2; */
@@ -36,68 +35,78 @@
     /* background-color: yellow; */
 }
 
-.statistics_items span{
+.statistics_items span {
     height: 120px;
     /* width: 20vw; */
     /* background-color: green; */
     font-size: 3.1rem;
     text-align: center;
     font-style: italic;
-    
+
     font-weight: 100;
-   
+
 }
 
-.statisticsNumber{
-    
+.statisticsNumber {
+
     font-family: "EditorialNew";
 }
 
-.StatisticsName{
+.StatisticsName {
     font-family: "EditorialLight";
 }
 
-.third{
+.third {
     padding-right: 210px;
     text-align: right;
     /* background-color: yellow; */
-    
+
 }
 
-.fourth{
+.fourth {
     padding-left: 180px;
     text-align: left;
     /* background-color: aliceblue; */
 }
 
-.torous{
+/* .torous {
     position: absolute;
     right: 0px;
     height: 400px;
     width: 300px;
-    /* background-color: green; */
     z-index: -1;
-}
+} */
 
-@media(max-width: 100vh){
-    body{
+@media(max-width: 100vh) {
+    body {
         /* background-color: green; */
     }
 
-    .statistics_items{
+    .statistics_items {
         grid-template-columns: repeat(1, 100%);
     }
 
-    .statistics_items span{
+    .statistics_items span {
         height: min-content;
         font-size: 2.3rem;
     }
 
-    .third{
+    .third {
         padding: 0px;
     }
-    .fourth{
-        padding:0px;
+
+    .fourth {
+        padding: 0px;
     }
 }
 
+/* For mobile devices */
+/* @media(max-width: 768px) {
+    .torus {
+        position: absolute;
+        right: -30px;
+        height: 400px;
+        width: 300px;
+        z-index: -1;
+    }
+} */

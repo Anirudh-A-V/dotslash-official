@@ -43,8 +43,8 @@ const PPNeueMontrealFont = localFont({
 
 const About = () => {
   return (
-    <div className="w-full flex flex-col lg:grid grid-cols-2 grid-rows-2 justify-center items-center p-6 lg:px-32">
-      <h2 className={`text-[42px] md:text-[60px] lg:text-[78px] font-normal text-center lg:text-right lg:mr-4 text-white ${PPEditotialNewFont.className} mb-2`}>
+    <div className="w-full flex flex-col lg:grid grid-cols-2 grid-rows-2 justify-center items-center p-6 lg:px-32 lg:py-6">
+      <h2 className={`text-[42px] md:text-[60px] lg:text-[78px] font-normal text-center lg:text-right lg:mr-4 text-white ${PPEditotialNewFont.className} mb-2 lg:mb-0`}>
         Legacy is back
       </h2>
       <div></div>
