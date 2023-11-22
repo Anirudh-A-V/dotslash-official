@@ -212,7 +212,7 @@ const Events = ({ eventData, sectionTitle, id }) => {
 													<p className={`text-[16px] lg:text-[18px] ${PPNeueMontrealFont.className} font-medium w-full text-white mb-4`}>
 														{eventModal.eventName}
 													</p>
-													<p className={`scroll text-sm md:text-lg overflow-auto h-[250px] md:h-[400px] font-normal text-white mb-4 whitespace-pre-line ${PPNeueMontrealFont.className}`}>
+													<p className={`scroll text-sm md:text-lg overflow-auto h-[250px] md:h-[360px] font-normal text-white mb-4 whitespace-pre-line ${PPNeueMontrealFont.className}`}>
 														{eventModal.eventDesc ? eventModal.eventDesc : "No description available"}
 													</p>
 												</div>
