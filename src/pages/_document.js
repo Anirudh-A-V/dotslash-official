@@ -22,17 +22,17 @@ export default function Document() {
                 <meta name="twitter:image" content="../../public/images/metalogo.png" />
 
             </Head>
-            <body>
-                <Script src="https://www.googletagmanager.com/gtag/js?id=G-96CQYSH4G1" />
-                <Script id="google-analytics">
-                    {`
+            <Script src="https://www.googletagmanager.com/gtag/js?id=G-96CQYSH4G1" />
+            <Script id="google-analytics">
+                {`
                         window.dataLayer = window.dataLayer || [];
                         function gtag(){dataLayer.push(arguments);}
                         gtag('js', new Date());
  
                         gtag('config', 'G-96CQYSH4G1');
                     `}
-                </Script>
+            </Script>
+            <body>
                 <Main />
                 <NextScript />
             </body>

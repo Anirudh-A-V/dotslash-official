@@ -1,5 +1,6 @@
 import React, { useState, Fragment } from 'react'
 import Head from 'next/head';
+import Script from 'next/script';
 import Link from 'next/link';
 import localFont from "next/font/local";
 
@@ -68,6 +69,16 @@ const PreEventsPage = () => {
                 <meta name="twitter:image" content="../../../../public/images/metalogo.png" />
 
             </Head>
+            <Script src="https://www.googletagmanager.com/gtag/js?id=G-96CQYSH4G1" />
+            <Script id="google-analytics">
+                {`
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+ 
+                        gtag('config', 'G-96CQYSH4G1');
+                    `}
+            </Script>
             <main
                 className={`flex min-h-screen flex-col items-center justify-start w-full bg-black`}
             >
