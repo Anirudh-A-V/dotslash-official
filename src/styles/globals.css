@@ -85,3 +85,8 @@ body::-webkit-scrollbar-thumb {
   font-family: "EditorialNew";
   src: url("../../public/PPEditorialNew-Regular.otf");
 }
+
+@font-face {
+  font-family: "EditorialLight";
+  src: url("../../public/fonts/PPEditorialNew-Ultralight.otf");
+}
