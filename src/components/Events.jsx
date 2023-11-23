@@ -129,7 +129,7 @@ const Events = ({ eventData, sectionTitle, id }) => {
 			<Slider {...settings} className=" w-[90%] lg:w-3/4 mx-auto  ">
 				{eventData?.map((event, index) => (
 					<div className="w-full p-0 md:pr-2 mb-6 " key={index}>
-						<div className="w-full h-[360px] bg-lime-200">
+						<div className="w-full h-full bg-lime-200">
 							<img
 								className="w-full h-full object-cover"
 								src={event.eventPoster.src}
@@ -212,7 +212,7 @@ const Events = ({ eventData, sectionTitle, id }) => {
 													<p className={`text-[16px] lg:text-[18px] ${PPNeueMontrealFont.className} font-medium w-full text-white mb-4`}>
 														{eventModal.eventName}
 													</p>
-													<p className={`scroll text-sm md:text-lg overflow-auto h-[250px] md:h-[360px] font-normal text-white mb-4 whitespace-pre-line ${PPNeueMontrealFont.className}`}>
+													<p className={`scroll text-sm md:text-lg overflow-auto h-[250px] md:h-[400px] font-normal text-white mb-4 whitespace-pre-line ${PPNeueMontrealFont.className}`}>
 														{eventModal.eventDesc ? eventModal.eventDesc : "No description available"}
 													</p>
 												</div>
