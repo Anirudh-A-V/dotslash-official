@@ -1,6 +1,6 @@
 import React from 'react'
-import localFont from "next/font/local";
 import Link from "next/link";
+import localFont from "next/font/local";
 
 const PPEditotialNewFont = localFont({
 	src: [
@@ -30,7 +30,6 @@ const PPNeueMontrealFont = localFont({
 const Footer = () => {
 	return (
 		<div className='flex flex-col w-full justify-start items-center mt-20 md:mt-10' id='contact'>
-			{/* logo */}
 			<div className='flex flex-col justify-center items-center md:flex-row md:justify-between w-full md:w-1/2  md:mb-20'>
 				<div className='flex flex-col justify-center items-center mb-14 md:mb-0'>
 					<p className={`text-[32px] md:text-[49px] font-normal text-white italic ${PPEditotialNewFont.className} mb-6`}>

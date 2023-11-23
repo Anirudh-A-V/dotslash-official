@@ -3,12 +3,12 @@ import Head from 'next/head';
 import Script from 'next/script';
 import Link from 'next/link';
 import localFont from "next/font/local";
-
-import Navbar from '@/components/Navbar'
 import { Dialog, Transition } from '@headlessui/react'
 
-import { preEventData } from '../../../assets/data/data';
+import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer';
+
+import { preEventData } from '../../../assets/data/data';
 
 const PPNeueMontrealFont = localFont({
     src: [
@@ -54,20 +54,6 @@ const PreEventsPage = () => {
             <Head>
                 <title>Pre-events</title>
                 <meta name="description" content="List of pre-events of DotSlash '23." />
-                <meta name="keywords" content="dotslash, DotSlash, Dot Slash, CET, CSE, CET CSE, College of Engineering Trivandrum, Computer Science & Engineering, Thiruvananthapuram, Trivandrum, Techfest, Technical fest, Cultural fest" />
-                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                <meta name="robots" content="index, follow" />
-
-                <meta property="og:title" content="DotSlash '23" />
-                <meta property="og:description" content="Official website of the technical fest of CSE CET" />
-                <meta property="og:image" content="../../../../public/images/metalogo.png" />
-                <meta property="og:url" content="https://www.dotslashcet.tech/" />
-
-                <meta name="twitter:card" content="../../../../public/images/metalogo.png" />
-                <meta name="twitter:title" content="DotSlash '23" />
-                <meta name="twitter:description" content="Official website of the technical fest of CSE CET" />
-                <meta name="twitter:image" content="../../../../public/images/metalogo.png" />
-
             </Head>
             <Script src="https://www.googletagmanager.com/gtag/js?id=G-96CQYSH4G1" />
             <Script id="google-analytics">

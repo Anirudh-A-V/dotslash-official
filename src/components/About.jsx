@@ -1,15 +1,5 @@
-import localFont from "next/font/local";
 import React from "react";
-
-const PPNeueMachinaFont = localFont({
-  src: [
-    {
-      path: "../../public/fonts/PPNeueMachina-Light.otf",
-      weight: "400",
-      style: "normal",
-    },
-  ],
-});
+import localFont from "next/font/local";
 
 const PPEditotialNewFont = localFont({
   src: [

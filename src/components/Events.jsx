@@ -1,11 +1,11 @@
 import React, { useState, useEffect, Fragment } from "react";
-import { Dialog, Transition } from '@headlessui/react'
+import Link from "next/link";
 import localFont from "next/font/local";
 import Slider from "react-slick";
+import { Dialog, Transition } from '@headlessui/react'
+
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Image from "next/image";
-import Link from "next/link";
 
 const PPTelegraffont = localFont({
 	src: [

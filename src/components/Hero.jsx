@@ -1,5 +1,4 @@
 import localFont from "next/font/local";
-import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 
 const PPNeueMachinaFont = localFont({
@@ -36,6 +35,7 @@ const Hero = () => {
             setWindowWidth(() => window.innerWidth);
         }
     }, []);
+
     return (
         <div className="flex flex-col justify-center items-center w-full h-screen overflow-clip">
             <video
