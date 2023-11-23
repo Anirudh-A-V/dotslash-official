@@ -54,6 +54,7 @@ const PreEventsPage = () => {
             <Head>
                 <title>Pre-events</title>
                 <meta name="description" content="List of pre-events of DotSlash '23." />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             </Head>
             <Script src="https://www.googletagmanager.com/gtag/js?id=G-96CQYSH4G1" />
             <Script id="google-analytics">

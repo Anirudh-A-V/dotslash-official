@@ -30,6 +30,7 @@ const FeaturedEventsPage = () => {
             <Head>
                 <title>Featured Events</title>
                 <meta name="description" content="List of featured events of DotSlash '23." />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             </Head>
             <Script src="https://www.googletagmanager.com/gtag/js?id=G-96CQYSH4G1" />
             <Script id="google-analytics">

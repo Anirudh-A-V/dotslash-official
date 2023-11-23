@@ -5,7 +5,6 @@ export default function Document() {
         <Html lang="en" style={{ scrollBehavior: 'smooth' }}>
             <Head>
                 <meta name="keywords" content="dotslash, DotSlash, Dot Slash, CET, CSE, CET CSE, College of Engineering Trivandrum, Computer Science & Engineering, Thiruvananthapuram, Trivandrum, Techfest, Technical fest, Cultural fest" />
-                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                 <meta name="robots" content="index, follow" />
 
                 <meta property="og:title" content="DotSlash '23" />
