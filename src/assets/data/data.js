@@ -1,7 +1,7 @@
 //Import Images for Workshops here
 import Microsoft from "../posters/pathtoMicrosoft.jpg";
 import WebDev from "../posters/webDev.jpg";
-import PythonProg from "../posters/pythonProgramming.jpg";
+import AlgoQuest from "../posters/AlgoQuest.png";
 
 export const workshopData = [
 	/*{
@@ -39,6 +39,29 @@ export const preEventData = [
 		eventStatus: 1, // = 0 =>Registration closed else 1
 	},
 	{
+		eventName: "AlgoQuest: Competitive Coding Workshop",
+		eventDesc: `
+		"The beauty of coding lies in the intricacies of problem-solving"
+
+		Hello Coding Enthusiasts ! Are you ready to explore the world of Competitive Programming? ✨Unlock and elevate your coding skills through AlgoQuest workshop, as part of Dotslash' 23, in association with IEEE Computer Society CET SC.
+
+		📚 What's Covered: C++, Data Structures, functions and Roadmap to CP.
+
+		🕕 Date & Time: 27th Nov 2023, 7:00-8:00 pm 
+		Reg Fees: Rs 150/-
+		🎤 Speaker: Pranav Jayachandran (Upcoming SDE at CareStack)
+		Mode: Online GMeet
+
+		Participants will be eligible to coding competitions of DotSlash. Qualified participants can advance to the final round happening during Dotslash'23.💻 So, don't miss out !! Join us for an exciting conquest and conquer coding challenges!! 🚀
+	
+		📱 Contact:
+		Riya Sabu- +919544613188
+		Richard- +918304800973`,
+		eventRegistration: "https://www.yepdesk.com/algoquest-competitive-coding-workshop",
+		eventPoster: AlgoQuest,
+		eventStatus: 1,
+	},
+	{
 		eventName: "Journey to Microsoft",
 		eventDesc: `"The only limit to our realization of tomorrow will be our doubts of today." - Franklin D. Roosevelt
 
@@ -63,33 +86,6 @@ export const preEventData = [
 		This event is completely free and open to all💥`,
 		eventRegistration: "",
 		eventPoster: Microsoft,
-		eventStatus: 0,
-	},
-	{
-		eventName: "Introduction to Programming with Python",
-		eventDesc: `
-		🐍 Dive into Python Programming! 🖥	
-		
-		👨‍💻 Department of Computer Science Presents:		
-		
-		🐍 Introduction to Python Programming		
-		
-		📅 Date: November 20, 2023 (Monday)
-		
-		🕟 Time: 4:30 PM - 6:00 PM
-		
-		🏛 Venue: CS116		
-		
-		🔍 Discover the Power of Python!	
-		
-		🚀 Join us for an exciting session covering:
-		
-		Basics of Python
-		
-		Programming Fundamentals
-		🎓 Suitable for Beginners!`,
-		eventRegistration: "",
-		eventPoster: PythonProg,
 		eventStatus: 0,
 	},
 ];
