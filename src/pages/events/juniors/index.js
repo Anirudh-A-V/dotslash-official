@@ -1,6 +1,7 @@
 import React, { useState, Fragment, useEffect } from 'react'
 import Head from 'next/head';
 import Script from 'next/script';
+import Image from 'next/image';
 import Link from 'next/link';
 import localFont from "next/font/local";
 import { Dialog, Transition } from '@headlessui/react'
@@ -105,10 +106,20 @@ const PreEventsPage = () => {
                             {dotslashJuniorData.length > 0 && dotslashJuniorData?.map((event, index) => (
                                 <div className="w-[350px] h-full p-0 md:pr-2">
                                     <div className="w-full h-full bg-lime-200">
-                                        <img
+                                        {/* <img
                                             className="w-full h-full object-cover"
                                             src={urlFor(event.eventPoster).url()}
                                             alt="Event Poster"
+                                        /> */}
+                                        <Image
+                                            // className="w-4/5 h-4/5 md:w-full md:h-full"
+                                            className="w-full h-full"
+                                            src={urlFor(event.eventPoster).url()}
+                                            alt="Event Poster"
+                                            layout="responsive"
+                                            width={250}
+                                            height={420}
+                                            objectFit="contain"
                                         />
                                     </div>
                                     <div className="mb-2 w-full p-[24px] pt-[12px] pb-[12px] justify-between flex  bg-[#090C53]">
@@ -178,11 +189,21 @@ const PreEventsPage = () => {
                                             </div>
                                             <div className="flex flex-col lg:flex-row justify-center items-center md:items-start gap-6">
                                                 <div className="w-full flex-1 flex justify-center items-center">
-                                                    <img
+                                                    {/* <img
                                                         // className="w-4/5 h-4/5 md:w-full md:h-full"
                                                         className="w-full h-full"
                                                         src={urlFor(eventModal.eventPoster).url()}
                                                         alt="Event Poster"
+                                                    /> */}
+                                                    <Image
+                                                        // className="w-4/5 h-4/5 md:w-full md:h-full"
+                                                        className="w-full h-full"
+                                                        src={urlFor(eventModal.eventPoster).url()}
+                                                        alt="Event Poster"
+                                                        layout="responsive"
+                                                        width={250}
+                                                        height={420}
+                                                        objectFit="contain"
                                                     />
                                                 </div>
                                                 <div className="overflow-hidden flex flex-1 flex-col h-full justify-between items-start">

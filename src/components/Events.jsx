@@ -1,8 +1,10 @@
 import React, { useState, useEffect, Fragment } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import localFont from "next/font/local";
 import Slider from "react-slick";
 import { Dialog, Transition } from '@headlessui/react'
+
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -43,6 +45,8 @@ const path = {
 	"DOTSLASH FOR JUNIORS": "juniors",
 }
 const Events = ({ eventData, sectionTitle, id }) => {
+
+
 	const [slidesToShow, setSlidesToShow] = useState(3);
 	const [eventModal, setEventModal] = useState(null);
 	const [slidesToScroll, setSlidesToScroll] = useState(1);
@@ -137,10 +141,20 @@ const Events = ({ eventData, sectionTitle, id }) => {
 				{eventData?.map((event, index) => (
 					<div className="w-full p-0 md:pr-2 mb-6 " key={index}>
 						<div className="w-full h-full bg-lime-200">
-							<img
+							{/* <img
 								className="w-full h-full object-cover"
 								src={urlFor(event.eventPoster).url()}
 								alt="Event Poster"
+							/> */}
+							<Image
+								// className="w-4/5 h-4/5 md:w-full md:h-full"
+								className="w-full h-full"
+								src={urlFor(event.eventPoster).url()}
+								alt="Event Poster"
+								layout="responsive"
+								width={250}
+								height={420}
+								objectFit="contain"
 							/>
 						</div>
 						<div className="mb-2 w-full p-[24px] pt-[12px] pb-[12px] justify-between flex  bg-[#090C53]">
@@ -197,7 +211,7 @@ const Events = ({ eventData, sectionTitle, id }) => {
 									leaveFrom="opacity-100 scale-100"
 									leaveTo="opacity-0 scale-95"
 								>
-									<Dialog.Panel className="w-full max-w-4xl flex flex-col transform overflow-hidden bg-[#121212] p-4 md:p-8 text-left align-middle transition-all">
+									<Dialog.Panel className="w-full max-w-4xl flex flex-col transform overflow-hidden bg-[#121212] p-4 md:p-8 md:pt-6 text-left align-middle transition-all">
 										<div className="flex justify-end items-center mb-4">
 											<button
 												className={`text-[14px] lg:text-[16px] font-extrabold text-white ${PPTelegraffont.className}`}
@@ -208,11 +222,21 @@ const Events = ({ eventData, sectionTitle, id }) => {
 										</div>
 										<div className="flex flex-col lg:flex-row justify-center items-center md:items-start gap-6">
 											<div className="w-full flex-1 flex justify-center items-center">
-												<img
+												{/* <img
 													// className="w-4/5 h-4/5 md:w-full md:h-full"
 													className="w-full h-full"
 													src={urlFor(eventModal.eventPoster).url()}
 													alt="Event Poster"
+												/> */}
+												<Image
+													// className="w-4/5 h-4/5 md:w-full md:h-full"
+													className="w-full h-full"
+													src={urlFor(eventModal.eventPoster).url()}
+													alt="Event Poster"
+													layout="responsive"
+													width={250}
+													height={420}
+													objectFit="contain"
 												/>
 											</div>
 											<div className="overflow-hidden flex flex-1 flex-col h-full justify-between items-start">

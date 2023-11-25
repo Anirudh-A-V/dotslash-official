@@ -2,6 +2,7 @@ import React, { useState, Fragment, useEffect } from 'react'
 import Head from 'next/head';
 import Script from 'next/script';
 import Link from 'next/link';
+import Image from 'next/image';
 import localFont from "next/font/local";
 import { Dialog, Transition } from '@headlessui/react'
 
@@ -99,14 +100,24 @@ const PreEventsPage = () => {
                             </div>
                         </div>
                     ) : (
-                        <div className='flex flex-col md:flex-row flex-wrap gap-8 md:gap-4 justify-center items-center'>
+                        <div className='flex flex-col md:flex-row flex-wrap gap-8 md:gap-4 justify-center items-center md:mx-12'>
                             {preEventData.length > 0 && preEventData?.map((event, index) => (
                                 <div className="w-[350px] h-full p-0 md:pr-2">
-                                    <div className="w-full h-full bg-lime-200">
-                                        <img
+                                    <div className="w-full h-full">
+                                        {/* <img
                                             className="w-full h-full object-cover"
                                             src={urlFor(event.eventPoster).url()}
                                             alt="Event Poster"
+                                        /> */}
+                                        <Image
+                                            // className="w-4/5 h-4/5 md:w-full md:h-full"
+                                            className="w-full h-full"
+                                            src={urlFor(event.eventPoster).url()}
+                                            alt="Event Poster"
+                                            layout="responsive"
+                                            width={250}
+                                            height={420}
+                                            objectFit="contain"
                                         />
                                     </div>
                                     <div className="mb-2 w-full p-[24px] pt-[12px] pb-[12px] justify-between flex  bg-[#090C53]">
@@ -175,11 +186,21 @@ const PreEventsPage = () => {
                                             </div>
                                             <div className="flex flex-col lg:flex-row justify-center items-center md:items-start gap-6">
                                                 <div className="w-full flex-1 flex justify-center items-center">
-                                                    <img
+                                                    {/* <img
                                                         // className="w-4/5 h-4/5 md:w-full md:h-full"
                                                         className="w-full h-full"
                                                         src={urlFor(eventModal.eventPoster).url()}
                                                         alt="Event Poster"
+                                                    /> */}
+                                                    <Image
+                                                        // className="w-4/5 h-4/5 md:w-full md:h-full"
+                                                        className="w-full h-full"
+                                                        src={urlFor(eventModal.eventPoster).url()}
+                                                        alt="Event Poster"
+                                                        layout="responsive"
+                                                        width={250}
+                                                        height={420}
+                                                        objectFit="contain"
                                                     />
                                                 </div>
                                                 <div className="overflow-hidden flex flex-1 flex-col h-full justify-between items-start">
