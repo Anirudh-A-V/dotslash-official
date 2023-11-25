@@ -42,12 +42,12 @@ export const getFeaturedEvents = async () => {
 
 export const getAllActiveEvents = async () => {
     const [preEventData, competitionData, workshopData, informalsData, dotslashJuniorData, featuredEventsData] = await Promise.all([
-        client.fetch(`*[_type == "preEvents" && isOpen == true] | order(date desc)`),
-        client.fetch(`*[_type == "competitions"] && isOpen == true | order(date desc)`),
-        client.fetch(`*[_type == "workshops"] && isOpen == true | order(date desc)`),
-        client.fetch(`*[_type == "informals"] && isOpen == true | order(date desc)`),
-        client.fetch(`*[_type == "juniorEvents"] && isOpen == true | order(date desc)`),
-        client.fetch(`*[_type == "featuredEvents"] && isOpen == true | order(date desc)`)
+        client.fetch(`*[_type == "preEvents"] | order(date desc)`),
+        client.fetch(`*[_type == "competitions"] | order(date desc)`),
+        client.fetch(`*[_type == "workshops"] | order(date desc)`),
+        client.fetch(`*[_type == "informals"] | order(date desc)`),
+        client.fetch(`*[_type == "juniorEvents"] | order(date desc)`),
+        client.fetch(`*[_type == "featuredEvents"] | order(date desc)`)
     ])
     return { preEventData, competitionData, workshopData, informalsData, dotslashJuniorData, featuredEventsData }
 }
