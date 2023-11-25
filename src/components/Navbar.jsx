@@ -39,15 +39,15 @@ const navRoutes = [
 	},
 	{
 		name: "About",
-		link: "#about-us",
+		link: "/#about-us",
 	},
 	{
 		name: "Pre Events",
-		link: "#pre-events",
+		link: "/#pre-events",
 	},
 	{
 		name: "Contact",
-		link: "#contact",
+		link: "/#contact",
 	}
 ]
 

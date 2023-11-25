@@ -8,7 +8,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer';
 
-import { preEventData } from '../../../assets/data/data';
+import { dotslashJuniorData } from '../../../assets/data/data';
 
 const PPNeueMontrealFont = localFont({
     src: [
@@ -72,7 +72,7 @@ const PreEventsPage = () => {
                 <Navbar />
                 <h1 className={`text-white text-4xl font-medium mt-20 mb-8 ${PPNeueMontrealFont.className}`}>PRE-EVENTS</h1>
                 <div className='flex flex-col md:flex-row flex-wrap gap-8 md:gap-4 justify-center items-center'>
-                    {preEventData?.map((event, index) => (
+                    {dotslashJuniorData?.map((event, index) => (
                         <div className="w-[350px] h-full p-0 md:pr-2">
                             <div className="w-full h-full bg-lime-200">
                                 <img

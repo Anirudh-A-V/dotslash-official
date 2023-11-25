@@ -38,10 +38,12 @@ const path = {
 	"INFORMALS": "informals",
 	"COMPETITIONS": "competitions",
 	"featured events": "featured-events",
+	"DOTSLASH FOR JUNIORS": "juniors",
 }
 const Events = ({ eventData, sectionTitle, id }) => {
 	const [slidesToShow, setSlidesToShow] = useState(3);
 	const [eventModal, setEventModal] = useState(null);
+	const [slidesToScroll, setSlidesToScroll] = useState(1);
 	const [isOpen, setIsOpen] = useState(false)
 
 	function closeModal() {
@@ -56,10 +58,13 @@ const Events = ({ eventData, sectionTitle, id }) => {
 	const handleResize = () => {
 		if (window.innerWidth <= 767) {
 			setSlidesToShow(1);
+			setSlidesToScroll(1);
 		} else if (window.innerWidth <= 991) {
 			setSlidesToShow(2);
+			setSlidesToScroll(1);
 		} else {
 			setSlidesToShow(3);
+			setSlidesToScroll(3);
 		}
 	};
 
@@ -75,7 +80,7 @@ const Events = ({ eventData, sectionTitle, id }) => {
 		infinite: true,
 		dots: true,
 		slidesToShow: slidesToShow,
-		slidesToScroll: 1,
+		slidesToScroll: slidesToScroll,
 		lazyLoad: true,
 		autoplay: true,
 		autoplaySpeed: 5000,
@@ -145,10 +150,11 @@ const Events = ({ eventData, sectionTitle, id }) => {
 								</button>
 							</div>
 							<div>
-								{event.eventStatus === 1 ? (
+								{event.isOpen ? (
 									<Link
 										className={`text-[14px] lg:text-[16px] font-medium text-[#091A61] bg-[#C7D2FF] px-[12px] py-[6px] ${PPNeueMontrealFont.className}`}
 										href={event.eventRegistration}
+										target="_blank"
 									>
 										Register
 									</Link>
@@ -219,10 +225,11 @@ const Events = ({ eventData, sectionTitle, id }) => {
 
 
 												<div className="flex w-full justify-end items-center mt-2">
-													{eventModal.eventStatus === 1 ? (
+													{eventModal.isOpen ? (
 														<Link
 															className={`text-[14px] lg:text-[16px] font-medium text-[#091A61] bg-[#C7D2FF] px-[12px] py-[6px] ${PPNeueMontrealFont.className}`}
 															href={eventModal.eventRegistration}
+															target="_blank"
 														>
 															Register
 														</Link>

@@ -11,7 +11,7 @@ import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import Sponsors from "@/components/Sponsors";
 
-import { workshopData, preEventData, competitionData, informalsData } from "../assets/data/data.js"
+import { workshopData, preEventData, competitionData, informalsData, dotslashJuniorData } from "../assets/data/data.js"
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -42,6 +42,7 @@ export default function Home() {
         <About />
         {preEventData.length > 0 && <Events eventData={preEventData} sectionTitle="PRE EVENTS" id="pre-events" />}
         <Statistics />
+        {dotslashJuniorData.length > 0 && <Events eventData={dotslashJuniorData} sectionTitle="DOTSLASH FOR JUNIORS" id="juniors" />}
         {workshopData.length > 0 && <Events eventData={workshopData} sectionTitle="WORKSHOPS" id="workshops" />}
         {competitionData.length > 0 && <Events eventData={competitionData} sectionTitle="COMPETITIONS" id="competitions" />}
         {informalsData.length > 0 && <Events eventData={informalsData} sectionTitle="INFORMALS" id="informals" />}
