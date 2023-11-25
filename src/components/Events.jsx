@@ -7,6 +7,8 @@ import { Dialog, Transition } from '@headlessui/react'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+import { urlFor } from "@/utils/sanity";
+
 const PPTelegraffont = localFont({
 	src: [
 		{
@@ -137,7 +139,7 @@ const Events = ({ eventData, sectionTitle, id }) => {
 						<div className="w-full h-full bg-lime-200">
 							<img
 								className="w-full h-full object-cover"
-								src={event.eventPoster.src}
+								src={urlFor(event.eventPoster).url()}
 								alt="Event Poster"
 							/>
 						</div>
@@ -209,7 +211,7 @@ const Events = ({ eventData, sectionTitle, id }) => {
 												<img
 													// className="w-4/5 h-4/5 md:w-full md:h-full"
 													className="w-full h-full"
-													src={eventModal.eventPoster.src}
+													src={urlFor(eventModal.eventPoster).url()}
 													alt="Event Poster"
 												/>
 											</div>
