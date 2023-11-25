@@ -11,8 +11,7 @@ import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import Sponsors from "@/components/Sponsors";
 
-import { workshopData, preEventData, competitionData, informalsData, dotslashJuniorData } from "../assets/data/data.js"
-import { getAllEventsSeparated } from "@/utils/sanity.js";
+import { getAllActiveEvents } from "@/utils/sanity.js";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -41,12 +40,12 @@ export default function Home({ eventData }) {
         <Hero />
         {/* <Featured /> */}
         <About />
-        {eventData.preEventData.length > 0 && <Events eventData={eventData.preEventData} sectionTitle="PRE EVENTS" id="pre-events" />}
+        {eventData.preEventData && eventData.preEventData.length > 0 && <Events eventData={eventData.preEventData} sectionTitle="PRE EVENTS" id="pre-events" />}
         <Statistics />
-        {eventData.dotslashJuniorData.length > 0 && <Events eventData={eventData.dotslashJuniorData} sectionTitle="DOTSLASH FOR JUNIORS" id="juniors" />}
-        {eventData.workshopData.length > 0 && <Events eventData={eventData.workshopData} sectionTitle="WORKSHOPS" id="workshops" />}
-        {eventData.competitionData.length > 0 && <Events eventData={eventData.competitionData} sectionTitle="COMPETITIONS" id="competitions" />}
-        {eventData.informalsData.length > 0 && <Events eventData={eventData.informalsData} sectionTitle="INFORMALS" id="informals" />}
+        {eventData.dotslashJuniorData && eventData.dotslashJuniorData.length > 0 && <Events eventData={eventData.dotslashJuniorData} sectionTitle="DOTSLASH FOR JUNIORS" id="juniors" />}
+        {eventData.workshopData && eventData.workshopData.length > 0 && <Events eventData={eventData.workshopData} sectionTitle="WORKSHOPS" id="workshops" />}
+        {eventData.competitionData && eventData.competitionData.length > 0 && <Events eventData={eventData.competitionData} sectionTitle="COMPETITIONS" id="competitions" />}
+        {eventData.informalsData && eventData.informalsData.length > 0 && <Events eventData={eventData.informalsData} sectionTitle="INFORMALS" id="informals" />}
         {/* <Sponsors />  */}
         <Footer />
       </main>
@@ -55,7 +54,7 @@ export default function Home({ eventData }) {
 }
 
 export async function getServerSideProps() {
-  const eventData = await getAllEventsSeparated();
+  const eventData = await getAllActiveEvents();
   console.log("Event Data", eventData);
   return {
     props: { eventData },
