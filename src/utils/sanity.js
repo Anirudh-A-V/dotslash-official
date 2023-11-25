@@ -40,4 +40,17 @@ export const getFeaturedEvents = async () => {
     return featuredEvents
 }
 
+export const getAllEventsSeparated = async () => {
+    // combine queries with Promise.all
+    const [preEventData, competitionData, workshopData, informalsData, dotslashJuniorData, featuredEventsData] = await Promise.all([
+        getPreEvents(),
+        getCompetitions(),
+        getWorkshops(),
+        getInformals(),
+        getJuniorEvents(),
+        getFeaturedEvents()
+    ])
+    return { preEventData, competitionData, workshopData, informalsData, dotslashJuniorData, featuredEventsData }
+}
+
 export const urlFor = (source) => builder.image(source)

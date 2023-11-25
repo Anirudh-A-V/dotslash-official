@@ -12,10 +12,11 @@ import Navbar from "@/components/Navbar";
 import Sponsors from "@/components/Sponsors";
 
 import { workshopData, preEventData, competitionData, informalsData, dotslashJuniorData } from "../assets/data/data.js"
+import { getAllEventsSeparated } from "@/utils/sanity.js";
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+export default function Home({ eventData }) {
 
   return (
     <>
@@ -40,15 +41,23 @@ export default function Home() {
         <Hero />
         {/* <Featured /> */}
         <About />
-        {preEventData.length > 0 && <Events eventData={preEventData} sectionTitle="PRE EVENTS" id="pre-events" />}
+        {eventData.preEventData.length > 0 && <Events eventData={eventData.preEventData} sectionTitle="PRE EVENTS" id="pre-events" />}
         <Statistics />
-        {dotslashJuniorData.length > 0 && <Events eventData={dotslashJuniorData} sectionTitle="DOTSLASH FOR JUNIORS" id="juniors" />}
-        {workshopData.length > 0 && <Events eventData={workshopData} sectionTitle="WORKSHOPS" id="workshops" />}
-        {competitionData.length > 0 && <Events eventData={competitionData} sectionTitle="COMPETITIONS" id="competitions" />}
-        {informalsData.length > 0 && <Events eventData={informalsData} sectionTitle="INFORMALS" id="informals" />}
+        {eventData.dotslashJuniorData.length > 0 && <Events eventData={eventData.dotslashJuniorData} sectionTitle="DOTSLASH FOR JUNIORS" id="juniors" />}
+        {eventData.workshopData.length > 0 && <Events eventData={eventData.workshopData} sectionTitle="WORKSHOPS" id="workshops" />}
+        {eventData.competitionData.length > 0 && <Events eventData={eventData.competitionData} sectionTitle="COMPETITIONS" id="competitions" />}
+        {eventData.informalsData.length > 0 && <Events eventData={eventData.informalsData} sectionTitle="INFORMALS" id="informals" />}
         {/* <Sponsors />  */}
         <Footer />
       </main>
     </>
   );
+}
+
+export async function getServerSideProps() {
+  const eventData = await getAllEventsSeparated();
+  console.log("Event Data", eventData);
+  return {
+    props: { eventData },
+  };
 }
