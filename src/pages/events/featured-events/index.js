@@ -6,7 +6,6 @@ import { Disclosure, Transition } from '@headlessui/react'
 
 import Navbar from '@/components/Navbar'
 
-import { featuredEventsData } from '../../../assets/data/data';
 
 const PPNeueMontrealFont = localFont({
     src: [
