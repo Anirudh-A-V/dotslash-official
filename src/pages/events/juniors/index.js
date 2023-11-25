@@ -116,10 +116,8 @@ const PreEventsPage = () => {
                                             className="w-full h-full"
                                             src={urlFor(event.eventPoster).url()}
                                             alt="Event Poster"
-                                            layout="responsive"
-                                            width={250}
-                                            height={420}
-                                            objectFit="contain"
+                                            width={350}
+                                            height={550}
                                         />
                                     </div>
                                     <div className="mb-2 w-full p-[24px] pt-[12px] pb-[12px] justify-between flex  bg-[#090C53]">
@@ -200,10 +198,8 @@ const PreEventsPage = () => {
                                                         className="w-full h-full"
                                                         src={urlFor(eventModal.eventPoster).url()}
                                                         alt="Event Poster"
-                                                        layout="responsive"
-                                                        width={250}
-                                                        height={420}
-                                                        objectFit="contain"
+                                                        width={300}
+                                                        height={500}
                                                     />
                                                 </div>
                                                 <div className="overflow-hidden flex flex-1 flex-col h-full justify-between items-start">

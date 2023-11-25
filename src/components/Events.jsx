@@ -69,8 +69,13 @@ const Events = ({ eventData, sectionTitle, id }) => {
 			setSlidesToShow(2);
 			setSlidesToScroll(1);
 		} else {
-			setSlidesToShow(3);
-			setSlidesToScroll(3);
+			if (eventData.length < 3) {
+				setSlidesToShow(eventData.length);
+				setSlidesToScroll(1);
+			} else {
+				setSlidesToShow(3);
+				setSlidesToScroll(3);
+			}
 		}
 	};
 
@@ -137,10 +142,10 @@ const Events = ({ eventData, sectionTitle, id }) => {
 				</div>
 			</div>
 
-			<Slider {...settings} className=" w-[90%] lg:w-3/4 mx-auto  ">
+			<Slider {...settings} className=" w-[90%] lg:w-3/4 mx-auto">
 				{eventData?.map((event, index) => (
 					<div className="w-full p-0 md:pr-2 mb-6 " key={index}>
-						<div className="w-full h-full bg-lime-200">
+						<div className="w-full h-full ">
 							{/* <img
 								className="w-full h-full object-cover"
 								src={urlFor(event.eventPoster).url()}
@@ -151,10 +156,8 @@ const Events = ({ eventData, sectionTitle, id }) => {
 								className="w-full h-full"
 								src={urlFor(event.eventPoster).url()}
 								alt="Event Poster"
-								layout="responsive"
-								width={250}
-								height={420}
-								objectFit="contain"
+								width={400}
+								height={600}
 							/>
 						</div>
 						<div className="mb-2 w-full p-[24px] pt-[12px] pb-[12px] justify-between flex  bg-[#090C53]">
@@ -233,10 +236,8 @@ const Events = ({ eventData, sectionTitle, id }) => {
 													className="w-full h-full"
 													src={urlFor(eventModal.eventPoster).url()}
 													alt="Event Poster"
-													layout="responsive"
-													width={250}
-													height={420}
-													objectFit="contain"
+													width={300}
+													height={500}
 												/>
 											</div>
 											<div className="overflow-hidden flex flex-1 flex-col h-full justify-between items-start">

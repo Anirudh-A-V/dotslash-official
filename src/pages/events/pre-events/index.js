@@ -115,8 +115,8 @@ const PreEventsPage = () => {
                                             src={urlFor(event.eventPoster).url()}
                                             alt="Event Poster"
                                             layout="responsive"
-                                            width={250}
-                                            height={420}
+                                            width={350}
+                                            height={550}
                                             objectFit="contain"
                                         />
                                     </div>
@@ -197,10 +197,8 @@ const PreEventsPage = () => {
                                                         className="w-full h-full"
                                                         src={urlFor(eventModal.eventPoster).url()}
                                                         alt="Event Poster"
-                                                        layout="responsive"
-                                                        width={250}
-                                                        height={420}
-                                                        objectFit="contain"
+                                                        width={300}
+                                                        height={500}
                                                     />
                                                 </div>
                                                 <div className="overflow-hidden flex flex-1 flex-col h-full justify-between items-start">
