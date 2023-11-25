@@ -129,6 +129,7 @@ export const competitionData = [
 	}*/
 
 ];
+
 export const informalsData = [
 	/*{
 	 eventName: "",

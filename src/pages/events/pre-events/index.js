@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react'
+import React, { useState, Fragment, useEffect } from 'react'
 import Head from 'next/head';
 import Script from 'next/script';
 import Link from 'next/link';
@@ -7,8 +7,8 @@ import { Dialog, Transition } from '@headlessui/react'
 
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer';
+import { getPreEvents, urlFor } from '@/utils/sanity';
 
-import { preEventData } from '../../../assets/data/data';
 
 const PPNeueMontrealFont = localFont({
     src: [
@@ -38,6 +38,8 @@ const PPTelegraffont = localFont({
 const PreEventsPage = () => {
     const [eventModal, setEventModal] = useState(null);
     const [isOpen, setIsOpen] = useState(false)
+    const [preEventData, setPreEventData] = useState([])
+    const [loading, setLoading] = useState(true)
 
     function closeModal() {
         setIsOpen(false)
@@ -48,6 +50,19 @@ const PreEventsPage = () => {
         setEventModal(data)
         setIsOpen(true)
     }
+
+    useEffect(() => {
+        const getPreEventsData = async () => {
+            const preEvents = await getPreEvents()
+            setPreEventData(preEvents)
+            setLoading(false)
+        }
+        getPreEventsData()
+
+        return () => {
+            setPreEventData([])
+        }
+    }, [])
 
     return (
         <>
@@ -71,43 +86,58 @@ const PreEventsPage = () => {
             >
                 <Navbar />
                 <h1 className={`text-white text-4xl font-medium mt-20 mb-8 ${PPNeueMontrealFont.className}`}>PRE-EVENTS</h1>
-                <div className='flex flex-col md:flex-row flex-wrap gap-8 md:gap-4 justify-center items-center'>
-                    {preEventData?.map((event, index) => (
-                        <div className="w-[350px] h-full p-0 md:pr-2">
-                            <div className="w-full h-full bg-lime-200">
-                                <img
-                                    className="w-full h-full object-cover"
-                                    src={event.eventPoster.src}
-                                    alt="Event Poster"
-                                />
-                            </div>
-                            <div className="mb-2 w-full p-[24px] pt-[12px] pb-[12px] justify-between flex  bg-[#090C53]">
-                                <div className="my-auto">
-                                    <button className="text-[14px] lg:text-[16px] font-[500] text-[#D4DDFF]"
-                                        onClick={(e) => openModal(event)}
-                                    >
-                                        View Details{" "}
-                                    </button>
-                                </div>
-                                <div>
-                                    {event.isOpen ? (
-                                        <Link
-                                            className={`text-[14px] lg:text-[16px] font-medium text-[#091A61] bg-[#C7D2FF] px-[12px] py-[6px] ${PPNeueMontrealFont.className}`}
-                                            href={event.eventRegistration}
-                                            target='_blank'
-                                        >
-                                            Register
-                                        </Link>
-                                    ) : (
-                                        <span className="text-[14px] lg:text-[16px] font-medium text-[#091A61] bg-[#C7D2FF] px-[12px] py-[6px] cursor-not-allowed opacity-50">
-                                            Closed
-                                        </span>
-                                    )}
-                                </div>
+                {
+                    loading ? (
+                        <div className='bg-black flex-1 justify-center items-center flex'>
+                            <div className="spinner">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
                             </div>
                         </div>
-                    ))}
-                </div>
+                    ) : (
+                        <div className='flex flex-col md:flex-row flex-wrap gap-8 md:gap-4 justify-center items-center'>
+                            {preEventData.length > 0 && preEventData?.map((event, index) => (
+                                <div className="w-[350px] h-full p-0 md:pr-2">
+                                    <div className="w-full h-full bg-lime-200">
+                                        <img
+                                            className="w-full h-full object-cover"
+                                            src={urlFor(event.eventPoster).url()}
+                                            alt="Event Poster"
+                                        />
+                                    </div>
+                                    <div className="mb-2 w-full p-[24px] pt-[12px] pb-[12px] justify-between flex  bg-[#090C53]">
+                                        <div className="my-auto">
+                                            <button className="text-[14px] lg:text-[16px] font-[500] text-[#D4DDFF]"
+                                                onClick={(e) => openModal(event)}
+                                            >
+                                                View Details{" "}
+                                            </button>
+                                        </div>
+                                        <div>
+                                            {event.isOpen ? (
+                                                <Link
+                                                    className={`text-[14px] lg:text-[16px] font-medium text-[#091A61] bg-[#C7D2FF] px-[12px] py-[6px] ${PPNeueMontrealFont.className}`}
+                                                    href={event.eventRegistration}
+                                                    target='_blank'
+                                                >
+                                                    Register
+                                                </Link>
+                                            ) : (
+                                                <span className="text-[14px] lg:text-[16px] font-medium text-[#091A61] bg-[#C7D2FF] px-[12px] py-[6px] cursor-not-allowed opacity-50">
+                                                    Closed
+                                                </span>
+                                            )}
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    )
+                }
                 {eventModal && (
                     <Transition appear show={isOpen} as={Fragment}>
                         <Dialog as="div" className="relative z-30" onClose={closeModal}>
@@ -148,7 +178,7 @@ const PreEventsPage = () => {
                                                     <img
                                                         // className="w-4/5 h-4/5 md:w-full md:h-full"
                                                         className="w-full h-full"
-                                                        src={eventModal.eventPoster.src}
+                                                        src={urlFor(eventModal.eventPoster).url()}
                                                         alt="Event Poster"
                                                     />
                                                 </div>
