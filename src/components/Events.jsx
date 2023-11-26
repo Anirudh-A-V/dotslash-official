@@ -148,7 +148,7 @@ const Events = ({ eventData, sectionTitle, id }) => {
 
 			<Slider {...settings} className=" w-[90%] lg:w-3/4 mx-auto">
 				{eventData?.map((event, index) => (
-					<div className="w-full p-0 md:pr-2 mb-6 " key={index}>
+					<div className="w-full p-0 md:px-1 mb-6 " key={index}>
 						<div className="w-full h-full ">
 							{/* <img
 								className="w-full h-full object-cover"
