@@ -32,6 +32,21 @@ const PPEditotialNewFont = localFont({
 	],
 });
 
+const PPNeueMontrealFont = localFont({
+	src: [
+		{
+			path: "../../public/fonts/PPNeueMontreal-Book.otf",
+			weight: "400",
+			style: "normal",
+		},
+		{
+			path: "../../public/fonts/PPNeueMontreal-Medium.otf",
+			weight: "500",
+			style: "normal",
+		},
+	],
+});
+
 const navRoutes = [
 	{
 		name: "Home",
@@ -44,6 +59,10 @@ const navRoutes = [
 	{
 		name: "Pre Events",
 		link: "/#pre-events",
+	},
+	{
+		name: "Juniors",
+		link: "/#juniors",
 	},
 	{
 		name: "Contact",
@@ -99,7 +118,7 @@ const Navbar = () => {
 				</button>
 
 				<div
-					className={`${styles.navlinks} sm:flex hidden w-3/5 items-center text-white justify-end gap-16 font-mono text-xl`}
+					className={`text-[18px] ${PPNeueMontrealFont.className} sm:flex hidden w-3/5 items-center text-white justify-end gap-16 font-normal`}
 				>
 					{navRoutes.map((route, index) => (
 						<Link href={route.link} key={index}>{route.name.toUpperCase()}</Link>
