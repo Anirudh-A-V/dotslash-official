@@ -50,6 +50,7 @@ const Events = ({ eventData, sectionTitle, id }) => {
 	const [slidesToShow, setSlidesToShow] = useState(3);
 	const [eventModal, setEventModal] = useState(null);
 	const [slidesToScroll, setSlidesToScroll] = useState(1);
+	const [arrow, setArrow] = useState(false);
 	const [isOpen, setIsOpen] = useState(false)
 
 	function closeModal() {
@@ -76,6 +77,9 @@ const Events = ({ eventData, sectionTitle, id }) => {
 				setSlidesToShow(3);
 				setSlidesToScroll(3);
 			}
+			if (eventData.length > 3) {
+				setArrow(true);
+			}
 		}
 	};
 
@@ -95,7 +99,7 @@ const Events = ({ eventData, sectionTitle, id }) => {
 		lazyLoad: true,
 		autoplay: true,
 		autoplaySpeed: 5000,
-		arrows: false,
+		arrows: arrow,
 		appendDots: (dots) => (
 			<div style={{ display: "flex", justifyContent: "center" }}>
 				<ul
