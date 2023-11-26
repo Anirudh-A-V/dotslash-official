@@ -58,6 +58,7 @@ const PreEventsPage = () => {
         const getJuniorEventsData = async () => {
             const data = await getJuniorEvents();
             setDotslashJuniorData(data)
+            console.log(data)
             setLoading(false)
         }
         getJuniorEventsData()
@@ -88,7 +89,7 @@ const PreEventsPage = () => {
                 className={`flex min-h-screen flex-col items-center justify-start w-full bg-black`}
             >
                 <Navbar />
-                <h1 className={`text-white text-4xl font-medium mt-20 mb-8 ${PPNeueMontrealFont.className}`}>DOTSLASH FOR JUNIORS</h1>
+                <h1 className={`text-white text-4xl text-center font-medium mt-20 mb-8 px-4 ${PPNeueMontrealFont.className}`}>DOTSLASH FOR JUNIORS</h1>
                 {
                     loading ? (
                         <div className='bg-black flex-1 justify-center items-center flex'>
@@ -117,7 +118,9 @@ const PreEventsPage = () => {
                                             src={urlFor(event.eventPoster).url()}
                                             alt="Event Poster"
                                             width={350}
-                                            height={550}
+                                            height={437}
+                                            placeholder='blur'
+                                            blurDataURL={event.eventPoster.asset.metadata.lqip}
                                         />
                                     </div>
                                     <div className="mb-2 w-full p-[24px] pt-[12px] pb-[12px] justify-between flex  bg-[#090C53]">
@@ -198,8 +201,10 @@ const PreEventsPage = () => {
                                                         className="w-full h-full"
                                                         src={urlFor(eventModal.eventPoster).url()}
                                                         alt="Event Poster"
-                                                        width={300}
-                                                        height={500}
+                                                        width={350}
+                                                        height={435}
+                                                        placeholder='blur'
+                                                        blurDataURL={eventModal.eventPoster.asset.metadata.lqip}
                                                     />
                                                 </div>
                                                 <div className="overflow-hidden flex flex-1 flex-col h-full justify-between items-start">
