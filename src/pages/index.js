@@ -55,7 +55,6 @@ export default function Home({ eventData }) {
 
 export async function getServerSideProps() {
   const eventData = await getAllActiveEvents();
-  console.log("Event Data", eventData);
   return {
     props: { eventData },
   };
