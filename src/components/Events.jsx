@@ -159,10 +159,10 @@ const Events = ({ eventData, sectionTitle, id }) => {
 								/> */}
 									<Image
 										// className="w-4/5 h-4/5 md:w-full md:h-full"
-										className="w-full h-full"
+										// className="w-full h-full"
 										src={urlFor(event.eventPoster).url()}
 										alt="Event Poster"
-										width={370}
+										width={373}
 										height={460}
 										placeholder="blur"
 										blurDataURL={event.eventPoster.asset.metadata.lqip}
