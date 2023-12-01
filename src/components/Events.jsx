@@ -131,7 +131,7 @@ const Events = ({ eventData, sectionTitle, id }) => {
 	};
 
 	return (
-		<div className="w-full flex flex-col" id={id}>
+		<div className="w-full flex flex-col mt-12" id={id}>
 			<div className="text-white  w-[90%] lg:w-3/4 mx-auto mb-2 p-2 justify-between items-center flex ">
 				<div>
 					<h className={` text-[23px] font-[500] ${PPNeueMontrealFont.className}`}>{sectionTitle}</h>
@@ -149,7 +149,7 @@ const Events = ({ eventData, sectionTitle, id }) => {
 			{eventData && eventData.length < 3 ? (
 				<>
 					<div className=" w-[90%] lg:w-3/4 mx-auto flex flex-col md:flex-row justify-start items-center gap-6">
-						{eventData?.slice(2).map((event, index) => (
+						{eventData?.map((event, index) => (
 							<div className="w-fit p-0 md:px-1 lg:mb-6 " key={index}>
 								<div className="w-fit h-fit ">
 									{/* <img
