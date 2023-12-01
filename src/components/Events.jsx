@@ -146,53 +146,106 @@ const Events = ({ eventData, sectionTitle, id }) => {
 				</div>
 			</div>
 
-			<Slider {...settings} className=" w-[90%] lg:w-3/4 mx-auto">
-				{eventData?.map((event, index) => (
-					<div className="w-full p-0 md:px-1 mb-6 " key={index}>
-						<div className="w-full h-full ">
-							{/* <img
-								className="w-full h-full object-cover"
-								src={urlFor(event.eventPoster).url()}
-								alt="Event Poster"
-							/> */}
-							<Image
-								// className="w-4/5 h-4/5 md:w-full md:h-full"
-								className="w-full h-full"
-								src={urlFor(event.eventPoster).url()}
-								alt="Event Poster"
-								width={370}
-								height={460}
-								placeholder="blur"
-								blurDataURL={event.eventPoster.asset.metadata.lqip}
-							/>
-						</div>
-						<div className="mb-2 w-full p-[24px] pt-[12px] pb-[12px] justify-between flex  bg-[#090C53]">
-							<div className="my-auto">
-								<button className="text-[14px] lg:text-[16px] font-[500] text-[#D4DDFF]"
-									onClick={(e) => openModal(event)}
-								>
-									View Details{" "}
-								</button>
+			{eventData && eventData.length < 3 ? (
+				<>
+					<div className=" w-[90%] lg:w-3/4 mx-auto flex flex-col md:flex-row justify-start items-center gap-6">
+						{eventData?.slice(2).map((event, index) => (
+							<div className="w-fit p-0 md:px-1 lg:mb-6 " key={index}>
+								<div className="w-fit h-fit ">
+									{/* <img
+									className="w-full h-full object-cover"
+									src={urlFor(event.eventPoster).url()}
+									alt="Event Poster"
+								/> */}
+									<Image
+										// className="w-4/5 h-4/5 md:w-full md:h-full"
+										className="w-full h-full"
+										src={urlFor(event.eventPoster).url()}
+										alt="Event Poster"
+										width={370}
+										height={460}
+										placeholder="blur"
+										blurDataURL={event.eventPoster.asset.metadata.lqip}
+									/>
+								</div>
+								<div className="lg:mb-2 w-full p-[24px] pt-[12px] pb-[12px] justify-between flex  bg-[#090C53]">
+									<div className="my-auto">
+										<button className="text-[14px] lg:text-[16px] font-[500] text-[#D4DDFF]"
+											onClick={(e) => openModal(event)}
+										>
+											View Details{" "}
+										</button>
+									</div>
+									<div>
+										{event.isOpen ? (
+											<Link
+												className={`text-[14px] lg:text-[16px] font-medium text-[#091A61] bg-[#C7D2FF] px-[12px] py-[6px] ${PPNeueMontrealFont.className}`}
+												href={event.eventRegistration}
+												target="_blank"
+											>
+												Register
+											</Link>
+										) : (
+											<span className="text-[14px] lg:text-[16px] font-medium text-[#091A61] bg-[#C7D2FF] px-[12px] py-[6px] cursor-not-allowed opacity-50">
+												Closed
+											</span>
+										)}
+									</div>
+								</div>
 							</div>
-							<div>
-								{event.isOpen ? (
-									<Link
-										className={`text-[14px] lg:text-[16px] font-medium text-[#091A61] bg-[#C7D2FF] px-[12px] py-[6px] ${PPNeueMontrealFont.className}`}
-										href={event.eventRegistration}
-										target="_blank"
-									>
-										Register
-									</Link>
-								) : (
-									<span className="text-[14px] lg:text-[16px] font-medium text-[#091A61] bg-[#C7D2FF] px-[12px] py-[6px] cursor-not-allowed opacity-50">
-										Closed
-									</span>
-								)}
-							</div>
-						</div>
+						))}
 					</div>
-				))}
-			</Slider>
+				</>
+			) : (
+				<Slider {...settings} className=" w-[90%] lg:w-3/4 mx-auto">
+					{eventData?.map((event, index) => (
+						<div className="w-full p-0 md:px-1 mb-6 " key={index}>
+							<div className="w-full h-full ">
+								{/* <img
+									className="w-full h-full object-cover"
+									src={urlFor(event.eventPoster).url()}
+									alt="Event Poster"
+								/> */}
+								<Image
+									// className="w-4/5 h-4/5 md:w-full md:h-full"
+									className="w-full h-full"
+									src={urlFor(event.eventPoster).url()}
+									alt="Event Poster"
+									width={370}
+									height={460}
+									placeholder="blur"
+									blurDataURL={event.eventPoster.asset.metadata.lqip}
+								/>
+							</div>
+							<div className="mb-2 w-full p-[24px] pt-[12px] pb-[12px] justify-between flex  bg-[#090C53]">
+								<div className="my-auto">
+									<button className="text-[14px] lg:text-[16px] font-[500] text-[#D4DDFF]"
+										onClick={(e) => openModal(event)}
+									>
+										View Details{" "}
+									</button>
+								</div>
+								<div>
+									{event.isOpen ? (
+										<Link
+											className={`text-[14px] lg:text-[16px] font-medium text-[#091A61] bg-[#C7D2FF] px-[12px] py-[6px] ${PPNeueMontrealFont.className}`}
+											href={event.eventRegistration}
+											target="_blank"
+										>
+											Register
+										</Link>
+									) : (
+										<span className="text-[14px] lg:text-[16px] font-medium text-[#091A61] bg-[#C7D2FF] px-[12px] py-[6px] cursor-not-allowed opacity-50">
+											Closed
+										</span>
+									)}
+								</div>
+							</div>
+						</div>
+					))}
+				</Slider>
+			)}
+
 
 			{eventModal && (
 				<Transition appear show={isOpen} as={Fragment}>
