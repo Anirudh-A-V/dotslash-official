@@ -139,7 +139,7 @@ const Events = ({ eventData, sectionTitle, id }) => {
 				<div>
 					<Link
 						className={`text-base font-[500] text-[#C7D2FF] ${PPNeueMontrealFont.className}`}
-						href={`/events/${path[sectionTitle]}`}
+						href={`/events/${path[sectionTitle]}` || ""}
 					>
 						View All
 					</Link>
@@ -177,10 +177,11 @@ const Events = ({ eventData, sectionTitle, id }) => {
 										</button>
 									</div>
 									<div>
-										{event.isOpen ? (
+										{event.eventRegistration &&
+											event.isOpen ? (
 											<Link
 												className={`text-[14px] lg:text-[16px] font-medium text-[#091A61] bg-[#C7D2FF] px-[12px] py-[6px] ${PPNeueMontrealFont.className}`}
-												href={event.eventRegistration}
+												href={event.eventRegistration || ""}
 												target="_blank"
 											>
 												Register
@@ -189,7 +190,8 @@ const Events = ({ eventData, sectionTitle, id }) => {
 											<span className="text-[14px] lg:text-[16px] font-medium text-[#091A61] bg-[#C7D2FF] px-[12px] py-[6px] cursor-not-allowed opacity-50">
 												Closed
 											</span>
-										)}
+										)
+										}
 									</div>
 								</div>
 							</div>
@@ -226,18 +228,20 @@ const Events = ({ eventData, sectionTitle, id }) => {
 									</button>
 								</div>
 								<div>
-									{event.isOpen ? (
-										<Link
-											className={`text-[14px] lg:text-[16px] font-medium text-[#091A61] bg-[#C7D2FF] px-[12px] py-[6px] ${PPNeueMontrealFont.className}`}
-											href={event.eventRegistration}
-											target="_blank"
-										>
-											Register
-										</Link>
-									) : (
-										<span className="text-[14px] lg:text-[16px] font-medium text-[#091A61] bg-[#C7D2FF] px-[12px] py-[6px] cursor-not-allowed opacity-50">
-											Closed
-										</span>
+									{event.eventRegistration && (
+										event.isOpen ? (
+											<Link
+												className={`text-[14px] lg:text-[16px] font-medium text-[#091A61] bg-[#C7D2FF] px-[12px] py-[6px] ${PPNeueMontrealFont.className}`}
+												href={event.eventRegistration || ""}
+												target="_blank"
+											>
+												Register
+											</Link>
+										) : (
+											<span className="text-[14px] lg:text-[16px] font-medium text-[#091A61] bg-[#C7D2FF] px-[12px] py-[6px] cursor-not-allowed opacity-50">
+												Closed
+											</span>
+										)
 									)}
 								</div>
 							</div>
@@ -313,18 +317,20 @@ const Events = ({ eventData, sectionTitle, id }) => {
 
 
 												<div className="flex w-full justify-end items-center mt-2">
-													{eventModal.isOpen ? (
-														<Link
-															className={`text-[14px] lg:text-[16px] font-medium text-[#091A61] bg-[#C7D2FF] px-[12px] py-[6px] ${PPNeueMontrealFont.className}`}
-															href={eventModal.eventRegistration}
-															target="_blank"
-														>
-															Register
-														</Link>
-													) : (
-														<span className="text-[14px] lg:text-[16px] font-medium text-[#091A61] bg-[#C7D2FF] px-[12px] py-[6px] cursor-not-allowed opacity-80">
-															Closed
-														</span>
+													{eventModal.eventRegistration && (
+														eventModal.isOpen ? (
+															<Link
+																className={`text-[14px] lg:text-[16px] font-medium text-[#091A61] bg-[#C7D2FF] px-[12px] py-[6px] ${PPNeueMontrealFont.className}`}
+																href={eventModal.eventRegistration || ""}
+																target="_blank"
+															>
+																Register
+															</Link>
+														) : (
+															<span className="text-[14px] lg:text-[16px] font-medium text-[#091A61] bg-[#C7D2FF] px-[12px] py-[6px] cursor-not-allowed opacity-50">
+																Closed
+															</span>
+														)
 													)}
 												</div>
 											</div>

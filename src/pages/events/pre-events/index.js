@@ -129,18 +129,20 @@ const PreEventsPage = () => {
                                             </button>
                                         </div>
                                         <div>
-                                            {event.isOpen ? (
-                                                <Link
-                                                    className={`text-[14px] lg:text-[16px] font-medium text-[#091A61] bg-[#C7D2FF] px-[12px] py-[6px] ${PPNeueMontrealFont.className}`}
-                                                    href={event.eventRegistration}
-                                                    target='_blank'
-                                                >
-                                                    Register
-                                                </Link>
-                                            ) : (
-                                                <span className="text-[14px] lg:text-[16px] font-medium text-[#091A61] bg-[#C7D2FF] px-[12px] py-[6px] cursor-not-allowed opacity-50">
-                                                    Closed
-                                                </span>
+                                            {event.eventRegistration && (
+                                                event.isOpen ? (
+                                                    <Link
+                                                        className={`text-[14px] lg:text-[16px] font-medium text-[#091A61] bg-[#C7D2FF] px-[12px] py-[6px] ${PPNeueMontrealFont.className}`}
+                                                        href={event.eventRegistration || ""}
+                                                        target="_blank"
+                                                    >
+                                                        Register
+                                                    </Link>
+                                                ) : (
+                                                    <span className="text-[14px] lg:text-[16px] font-medium text-[#091A61] bg-[#C7D2FF] px-[12px] py-[6px] cursor-not-allowed opacity-50">
+                                                        Closed
+                                                    </span>
+                                                )
                                             )}
                                         </div>
                                     </div>
@@ -215,18 +217,20 @@ const PreEventsPage = () => {
 
 
                                                     <div className="flex w-full justify-end items-center mt-2">
-                                                        {eventModal.isOpen ? (
-                                                            <Link
-                                                                className={`text-[14px] lg:text-[16px] font-medium text-[#091A61] bg-[#C7D2FF] px-[12px] py-[6px] ${PPNeueMontrealFont.className}`}
-                                                                href={eventModal.eventRegistration}
-                                                                target='_blank'
-                                                            >
-                                                                Register
-                                                            </Link>
-                                                        ) : (
-                                                            <span className="text-[14px] lg:text-[16px] font-medium text-[#091A61] bg-[#C7D2FF] px-[12px] py-[6px] cursor-not-allowed opacity-80">
-                                                                Closed
-                                                            </span>
+                                                        {eventModal.eventRegistration && (
+                                                            eventModal.isOpen ? (
+                                                                <Link
+                                                                    className={`text-[14px] lg:text-[16px] font-medium text-[#091A61] bg-[#C7D2FF] px-[12px] py-[6px] ${PPNeueMontrealFont.className}`}
+                                                                    href={eventModal.eventRegistration || ""}
+                                                                    target="_blank"
+                                                                >
+                                                                    Register
+                                                                </Link>
+                                                            ) : (
+                                                                <span className="text-[14px] lg:text-[16px] font-medium text-[#091A61] bg-[#C7D2FF] px-[12px] py-[6px] cursor-not-allowed opacity-50">
+                                                                    Closed
+                                                                </span>
+                                                            )
                                                         )}
                                                     </div>
                                                 </div>
