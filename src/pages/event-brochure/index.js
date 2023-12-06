@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const EvenBrochureLink = 'https://drive.google.com/file/d/1vqHnh7LIyvCGPGi2hkTnXlrd_dP_dYSS/view?usp=sharing'
+const EvenBrochureLink = 'https://drive.google.com/file/d/1M8Sw5Hf9kUiCyb8rrP5XChWDfghvRCDg/view?usp=drive_link'
 
 const EventBrochure = () => {
     useEffect(() => {
